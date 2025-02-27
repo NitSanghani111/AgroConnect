@@ -126,7 +126,7 @@ export default function AboutPage() {
 
 
       {/* Join Us Section */}
-      <section className="py-20 bg-green-500 text-white relative overflow-hidden">
+      <section className="py-20 bg-green-600 text-white relative overflow-hidden">
         <div className="container relative">
           <div className="max-w-3xl mx-auto text-center">
             <AnimatedText text={t("about.joinUs.title")} className="text-3xl font-bold mb-4" />

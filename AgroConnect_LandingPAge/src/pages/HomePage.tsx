@@ -16,12 +16,12 @@ import {
   User,
   MapPin,
 } from "lucide-react";
-import { Button } from "../components/ui/button";
-import { Card, CardContent } from "../components/ui/card";
-import { AnimatedText } from "../components/ui/animated-text";
-import { AnimatedNumber } from "../components/ui/animated-number";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel";
-import { type ProductType } from "../types/product";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { AnimatedText } from "@/components/ui/animated-text";
+import { AnimatedNumber } from "@/components/ui/animated-number";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
+import { type ProductType } from "@/types/product";
 
 export default function HomePage() {
   const { t } = useTranslation();

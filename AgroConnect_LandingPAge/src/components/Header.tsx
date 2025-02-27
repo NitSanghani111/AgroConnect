@@ -1,29 +1,31 @@
-"use client";
+"use client"
 
-import { useState, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X } from "lucide-react";
-import { Button } from "./ui/button";
-import img from "../assets/logo.png";
-import { LanguageSelector } from "./LanguageSelector";
+import { useState, useEffect } from "react"
+import { Link, useLocation } from "react-router-dom"
+import { motion, AnimatePresence } from "framer-motion"
+import { Menu, X } from "lucide-react"
+import { Button } from "./ui/button"
+import img from "../assets/logo.png"
+import { LanguageSelector } from "./LanguageSelector"
 
 export function Header() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const location = useLocation();
+  const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
+  const location = useLocation()
 
+  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      setScrolled(window.scrollY > 20)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
+  // Close mobile menu when route changes
   useEffect(() => {
-    setIsMenuOpen(false);
-  }, [location]);
+    setIsMenuOpen(false)
+  }, [])
 
   const navItems = [
     { path: "/", label: "Home" },
@@ -32,7 +34,7 @@ export function Header() {
     { path: "/contact", label: "Contact" },
     { path: "/resources", label: "Resources" },
     { path: "/success-stories", label: "Success Stories" },
-  ];
+  ]
 
   return (
     <motion.header
@@ -43,11 +45,8 @@ export function Header() {
       }`}
     >
       <div className="container flex h-20 items-center justify-between px-4 md:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="flex items-center"
-        >
+        {/* Logo Section */}
+        <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center">
           <Link to="/" className="flex items-center space-x-2 group">
             <motion.img
               whileHover={{ scale: 1.05 }}
@@ -62,6 +61,7 @@ export function Header() {
           </Link>
         </motion.div>
 
+        {/* Mobile Menu Button */}
         <motion.button
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -69,13 +69,10 @@ export function Header() {
           onClick={() => setIsMenuOpen(!isMenuOpen)}
           aria-label="Toggle Menu"
         >
-          {isMenuOpen ? (
-            <X className="h-6 w-6" />
-          ) : (
-            <Menu className="h-6 w-6" />
-          )}
+          {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
         </motion.button>
 
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-4">
           {navItems.map((item) => (
             <Link
@@ -111,12 +108,14 @@ export function Header() {
             >
               <Link to="/register">Register</Link>
             </Button>
-            <div className="w-20 " style={{ marginTop: "10px" }}>
+            {/* Language Selector Button */}
+            <div className="w-20 " style={{marginTop:'10px'}} >
               <LanguageSelector />
             </div>
           </motion.div>
         </nav>
 
+        {/* Mobile Navigation */}
         <AnimatePresence>
           {isMenuOpen && (
             <motion.div
@@ -138,27 +137,20 @@ export function Header() {
                     <Link
                       to={item.path}
                       className={`text-sm font-medium text-white hover:text-green-100 transition-colors ${
-                        location.pathname === item.path
-                          ? "bg-white/10 rounded-md"
-                          : ""
+                        location.pathname === item.path ? "bg-white/10 rounded-md" : ""
                       }`}
                       onClick={() => setIsMenuOpen(false)}
                     >
                       <span className="block px-4 py-2">{item.label}</span>
                     </Link>
-                    {/* <div className="text-sm font-medium text-white hover:text-green-100 transition-colors">
-                    <LanguageSelector />
-                    </div> */}
-                 
                   </motion.div>
-                  
                 ))}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: 20 }}
                   className="flex flex-col space-y-2 px-4 pt-2 border-t border-white/10"
-                > 
+                >
                   <Button
                     asChild
                     variant="outline"
@@ -166,15 +158,15 @@ export function Header() {
                   >
                     <Link to="/login">Login</Link>
                   </Button>
-                  <Button
-                    asChild
-                    className="w-full bg-white text-green-600 hover:bg-green-100 transition-colors"
-                  >
+                  <Button asChild className="w-full bg-white text-green-600 hover:bg-green-100 transition-colors">
                     <Link to="/register">Register</Link>
                   </Button>
-               
-                  
-                 
+                  {/* Language Selector for Mobile */}
+                  <div className="w-full flex justify-center mt-2">
+                    <div className="w-32">
+                      <LanguageSelector />
+                    </div>
+                  </div>
                 </motion.div>
               </nav>
             </motion.div>
@@ -182,5 +174,5 @@ export function Header() {
         </AnimatePresence>
       </div>
     </motion.header>
-  );
+  )
 }

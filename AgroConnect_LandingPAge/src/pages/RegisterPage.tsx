@@ -24,7 +24,7 @@ import {
 function UserTypeSelection({ selectedType, onSelect }: { selectedType: string; onSelect: (type: string) => void }) {
   const { t } = useTranslation();
   return (
-    <div className="space-y-6 mt-10">
+    <div className="space-y-6">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold mb-2">{t("userType.title")}</h2>
         <p className="text-muted-foreground">{t("userType.subtitle")}</p>
@@ -352,10 +352,10 @@ function RegistrationComplete({ userType }: { userType: string }) {
           <Link to="/dashboard">{t("complete.dashboard")}</Link>
         </Button>
         <Button asChild variant="outline">
-          <Link to="//Product">
+          <Link to="/marketplace">
             {userType === "farmer"
-              ? t("complete.Product.farmer")
-              : t("complete.Product.buyer")}
+              ? t("complete.marketplace.farmer")
+              : t("complete.marketplace.buyer")}
           </Link>
         </Button>
       </div>

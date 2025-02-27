@@ -1,4 +1,4 @@
-
+import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { motion, AnimatePresence } from "framer-motion";
 import { Star, X, ChevronDown, ChevronUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
@@ -9,7 +9,7 @@ interface ProductType {
   id: number;
   images: string[];
   name: string;
-  priceRange: { 
+  priceRange: {
     min: number;
     max: number;
   };
@@ -142,7 +142,7 @@ const ProductDetailsModal = ({ product, isOpen, onClose }: ProductDetailsModalPr
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
           onClick={() => setShowMoreDetails(!showMoreDetails)}
-          className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white px-5 py-2 rounded-lg"
+          className="bg-gradient-to-br from-blue-500 via-blue-600 to-blue-700 text-white px-4 py-2 rounded-lg"
         >
           {showMoreDetails ? t("products.View Less") : t("products.Read More")}
           {showMoreDetails ? <ChevronUp className="h-5 w-20" /> : <ChevronDown className="h-5 w-20" />}

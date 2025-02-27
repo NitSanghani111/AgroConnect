@@ -7,12 +7,12 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../components/ui/select";
+} from "@/components/ui/select";
 import { useState, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import ProductDetailsModal from "../components/ProductDetailsModal";
-import { cn } from "../lib/utils";
-import { ProductType } from "../types/product";
+import ProductDetailsModal from "@/components/ProductDetailsModal";
+import { cn } from "@/lib/utils";
+import { ProductType } from "@/types/product";
 
 interface ProductType {
   id: number;
@@ -393,16 +393,17 @@ const Product = () => {
                       className="w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                    
+                    <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full shadow-lg">
+                      <div className="flex items-center gap-1">
+                        {renderStars(product.quality)}
+                      </div>
+                    </div>
                   </div>
                   
                   <div className="p-6">
                     <h3 className="text-xl font-semibold text-green-800 mb-2 group-hover:text-green-600 transition-colors">
                       {t(`products.${product.name}`)}
                     </h3>
-                    <div className="flex items-center gap-1">
-                        {renderStars(product.quality)}
-                      </div>
                     <p className="text-green-600 text-sm mb-4 line-clamp-2">
                       {t(`products.${product.description}`)}
                     </p>
