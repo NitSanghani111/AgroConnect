@@ -1,0 +1,214 @@
+{
+    "welcome": "ਤੁਹਾਡੀ ਖਾਲੀ ਐਪ ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ",
+    "startBuilding": "ਇੱਥੇ ਆਪਣਾ ਸ਼ਾਨਦਾਰ ਪ੍ਰੋਜੈਕਟ ਬਣਾਉਣਾ ਸ਼ੁਰੂ ਕਰੋ!",
+    "Add Product": "ਉਤਪਾਦ ਜੋੜੋ",
+    "View Products": "ਉਤਪਾਦ ਵੇਖੋ",
+    "addNewProduct": "ਨਵਾਂ ਉਤਪਾਦ ਜੋੜੋ",
+    "farmerName": "ਕਿਸਾਨ ਦਾ ਨਾਮ",
+    "enterFarmerName": "ਕਿਸਾਨ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+    "productImage": "ਉਤਪਾਦ ਚਿੱਤਰ URL",
+    "enterImageURL": "ਚਿੱਤਰ URL ਦਰਜ ਕਰੋ",
+    "productName": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+    "enterProductName": "ਉਤਪਾਦ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+    "price": "ਕੀਮਤ (₹)",
+    "quantity": "ਮਾਤਰਾ (ਕਿ.ਗ੍ਰਾ)",
+    "description": "ਵੇਰਵਾ",
+    "enterDescription": "ਉਤਪਾਦ ਦਾ ਵੇਰਵਾ ਦਰਜ ਕਰੋ",
+    "address": "ਪਤਾ",
+    "enterAddress": "ਪਤਾ ਦਰਜ ਕਰੋ",
+    "addingProduct": "ਉਤਪਾਦ ਜੋੜਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
+    "success": "ਸਫਲਤਾ",
+    "productAddedSuccess": "ਉਤਪਾਦ ਸਫਲਤਾਪੂਰਵਕ ਜੋੜਿਆ ਗਿਆ",
+
+    "products":{
+        "loading": "ਉਤਪਾਦ ਲੋਡ ਹੋ ਰਹੇ ਹਨ...",
+  "addProduct": "ਉਤਪਾਦ ਸ਼ਾਮਲ ਕਰੋ",
+  "viewProducts": "ਉਤਪਾਦ ਵੇਖੋ",
+  "All Products": "ਸਾਰੇ ਉਤਪਾਦ",
+  "noProducts": "ਹਾਲੇ ਤੱਕ ਕੋਈ ਉਤਪਾਦ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤਾ ਗਿਆ",
+  "farmer": "ਕਿਸਾਨ",
+  "quantity": "ਮਾਤਰਾ",
+  "description": "ਵਰਣਨ",
+  "address": "ਪਤਾ"
+    },
+    
+    
+      "Profile": {
+    "title": "ਕਿਸਾਨ ਪ੍ਰੋਫਾਈਲ",
+    "farmerData": {
+      "fullName": "ਫ੍ਰਾਂਸ ਵਿਨਾਟਾ",
+      "email": "franswinata6@gmail.com",
+      "phone": "081-234-5678",
+      "location": "ਮਾਲੰਗ, SM 74810",
+      "farmName": "ਗ੍ਰੀਨ ਵੈਲੀ ਫਾਰਮ",
+      "experience": "5 ਸਾਲ",
+      "productsGrown": {
+        "Tomatoes": "ਟਮਾਟਰ",
+        "Potatoes": "ਆਲੂ",
+        "Carrots": "ਗਾਜਰ",
+        "Lettuce": "ਲੈਟਸ",
+        "Cucumbers": "ਖੀਰਾ"
+      },
+      "socialMedia": {
+        "facebook": "https://facebook.com/fransahw",
+        "instagram": "https://instagram.com/fransahw",
+        "twitter": "https://twitter.com/fransahw"
+      },
+      "rating": 4.5
+    },
+    "additionalInformation": {
+      "title": "ਵਾਧੂ ਜਾਣਕਾਰੀ",
+      "farmName": "ਫਾਰਮ ਦਾ ਨਾਮ",
+      "experienceLevel": "ਅਨੁਭਵ ਪੱਧਰ",
+      "productsGrown": "ਉਗਾਏ ਗਏ ਉਤਪਾਦ",
+      "socialMedia": "ਸੋਸ਼ਲ ਮੀਡੀਆ"
+    },
+    "accountActions": {
+      "editProfile": "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ ਸੰਪਾਦਿਤ ਕਰੋ",
+      "deleteAccount": "ਮੇਰਾ ਖਾਤਾ ਹਟਾਓ"
+    },
+    "deleteConfirmationModal": {
+      "title": "ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ!",
+      "message": "ਕੀ ਤੁਸੀਂ ਆਪਣਾ ਖਾਤਾ ਹਟਾਉਣਾ ਚਾਹੁੰਦੇ ਹੋ?",
+      "confirm": "ਹਾਂ, ਮੈਂ ਆਪਣਾ ਖਾਤਾ ਹਟਾਉਣਾ ਚਾਹੁੰਦਾ ਹਾਂ",
+      "cancel": "ਨਹੀਂ, ਮੈਨੂੰ ਨਹੀਂ ਚਾਹੀਦਾ"
+    }
+  },
+  
+    "Analytics": {
+      "title": "ਵਿਸ਼ਲੇਸ਼ਣ ਡੈਸ਼ਬੋਰਡ",
+      "quotes": {
+        "text": "“ਡੇਟਾ ਨਵਾਂ ਤੇਲ ਹੈ।”"
+      },
+      "sales": {
+        "fruits": "ਫਲਾਂ ਦੀ ਵਿਕਰੀ ਵਿਰੁੱਧ ਮਹੀਨਾ",
+        "grains": "ਅਨਾਜ ਦੀ ਵਿਕਰੀ ਵਿਰੁੱਧ ਮਹੀਨਾ",
+        "Profit Fruits": "ਫਲਾਂ ਦਾ ਨਫਾ ਉਤਪਾਦ ਦੁਆਰਾ",
+        "Profit Grains": "ਅਨਾਜ ਦਾ ਨਫਾ ਉਤਪਾਦ ਦੁਆਰਾ",
+        "discountsFruits": "ਫਲਾਂ 'ਤੇ ਛੂਟ",
+        "ratingsFruits": "ਫਲਾਂ ਦੀ ਰੇਟਿੰਗ",
+        "discountsGrains": "ਅਨਾਜ 'ਤੇ ਛੂਟ",
+        "ratingsGrains": "ਅਨਾਜ ਦੀ ਰੇਟਿੰਗ",
+        "citySales": "ਸ਼ਹਿਰ ਦੀ ਵਿਕਰੀ ਉਤਪਾਦ ਦੁਆਰਾ"
+      },
+      "months": {
+        "Jan": "ਜਨਵਰੀ",
+        "Feb": "ਫਰਵਰੀ",
+        "Mar": "ਮਾਰਚ",
+        "Apr": "ਅਪ੍ਰੈਲ",
+        "May": "ਮਈ"
+      },
+      "products": {
+        "apples": "ਸੇਬ",
+        "bananas": "ਕੇਲੇ",
+        "oranges": "ਸੰਤਰੇ",
+        "grapes": "ਅੰਗੂਰ",
+        "rice": "ਚੌਲ",
+        "wheat": "ਗਹੂੰ",
+        "oats": "ਜਵ",
+        "corn": "ਮਕਈ"
+      }
+    },
+  
+      "title": "ਕਿਸਾਨਾਂ ਦਾ ਬਾਜ਼ਾਰ",
+      "description1": "ਭਾਰਤ ਦੇ ਕਿਸਾਨਾਂ ਤੋਂ ਤਾਜਾ, ਸਥਾਨਕ ਤੌਰ 'ਤੇ ਪ੍ਰਾਪਤ ਉਤਪਾਦ ਖੋਜੋ",
+      "searchPlaceholder": "ਉਤਪਾਦ ਖੋਜੋ...",
+      "allCategories": "ਸਭ ਸ਼੍ਰੇਣੀਆਂ",
+      "allLocations": "ਸਭ ਸਥਾਨ",
+      "noProductsFound": "ਤੁਹਾਡੇ ਮਾਪਦੰਡਾਂ ਨਾਲ ਮੇਲ ਖਾਂਦੇ ਕੋਈ ਉਤਪਾਦ ਨਹੀਂ ਮਿਲੇ।",
+      "knowMore": "ਹੋਰ ਜਾਣੋ",
+      "products1": [
+        {
+          "id": 1,
+          "name": "ਪ੍ਰੀਮੀਅਮ ਸੇਬ",
+          "category": "ਫਲ",
+          "city": "ਮਹਾਰਾਸ਼ਟਰ",
+          "price": "₹120/kg",
+          "description": "ਤਾਜ਼ਾ ਅਤੇ ਰਸਦਾਰ ਸੇਬ।",
+          "quality": "ਜੈਵਿਕ"
+        },
+        {
+          "id": 2,
+          "name": "ਜੈਵਿਕ ਆਮ",
+          "category": "ਫਲ",
+          "city": "ਗੁਜਰਾਤ",
+          "price": "₹150/kg",
+          "description": "ਪੱਕੇ ਆਮ, ਸਮੂਥੀ ਲਈ ਬਿਹਤਰ।",
+          "quality": "ਜੈਵਿਕ"
+        },
+        {
+          "id": 3,
+          "name": "ਤਾਜ਼ਾ ਟਮਾਟਰ",
+          "category": "ਸਬਜ਼ੀਆਂ",
+          "city": "ਕਰਨਾਟਕ",
+          "price": "₹40/kg",
+          "description": "ਖਾਣ ਲਈ ਉੱਚ ਗੁਣਵੱਤਾ ਦੇ ਟਮਾਟਰ।",
+          "quality": "ਤਾਜ਼ਾ"
+        },
+        {
+          "id": 4,
+          "name": "ਬਾਸਮਤੀ ਚੌਲ",
+          "category": "ਅਨਾਜ",
+          "city": "ਪੰਜਾਬ",
+          "price": "₹85/kg",
+          "description": "ਲੰਬੇ ਦਾਣੇ ਵਾਲਾ ਬਾਸਮਤੀ ਚੌਲ, ਭੋਜਨ ਲਈ ਬਿਹਤਰ।",
+          "quality": "ਪੁਰਾਣਾ"
+        },
+        {
+          "id": 5,
+          "name": "ਗਾਜਰ",
+          "category": "ਸਬਜ਼ੀਆਂ",
+          "city": "ਹਰਿਆਣਾ",
+          "price": "₹30/kg",
+          "description": "ਕਰੰਚੀ ਅਤੇ ਮਿੱਠੀ ਗਾਜਰ।",
+          "quality": "ਜੈਵਿਕ"
+        },
+        {
+          "id": 6,
+          "name": "ਆਲੂ",
+          "category": "ਸਬਜ਼ੀਆਂ",
+          "city": "ਮੱਧ ਪ੍ਰਦੇਸ਼",
+          "price": "₹25/kg",
+          "description": "ਵਿਭਿੰਨ ਅਤੇ ਸੁਆਦਿਸ਼ਟ ਆਲੂ।",
+          "quality": "ਤਾਜ਼ਾ"
+        },
+        {
+          "id": 7,
+          "name": "ਪਿਆਜ਼",
+          "category": "ਸਬਜ਼ੀਆਂ",
+          "city": "ਆਂਧ੍ਰ ਪ੍ਰਦੇਸ਼",
+          "price": "₹20/kg",
+          "description": "ਖਾਣ ਲਈ ਤਾਜ਼ਾ ਪਿਆਜ਼।",
+          "quality": "ਜੈਵਿਕ"
+        },
+        {
+          "id": 8,
+          "name": "ਲਹਸਨ",
+          "category": "ਸਬਜ਼ੀਆਂ",
+          "city": "ਗੁਜਰਾਤ",
+          "price": "₹60/kg",
+          "description": "ਮਜ਼ਬੂਤ ਅਤੇ ਸੁਆਦਿਸ਼ਟ ਲਹਸਨ।",
+          "quality": "ਤਾਜ਼ਾ"
+        },
+        {
+          "id": 9,
+          "name": "ਚਣੇ",
+          "category": "ਦਾਲਾਂ",
+          "city": "ਰਾਜਸਥਾਨ",
+          "price": "₹100/kg",
+          "description": "ਉੱਚ ਪ੍ਰੋਟੀਨ ਚਣੇ।",
+          "quality": "ਜੈਵਿਕ"
+        },
+        {
+          "id": 10,
+          "name": "ਦਾਲ",
+          "category": "ਦਾਲਾਂ",
+          "city": "ਪੰਜਾਬ",
+          "price": "₹90/kg",
+          "description": "ਪੋਸ਼ਣਯੁਕਤ ਦਾਲਾਂ।",
+          "quality": "ਤਾਜ਼ਾ"
+        }
+      ]
+    
+  
+  }

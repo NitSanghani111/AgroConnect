@@ -11,12 +11,14 @@ import ResourcesPage from './pages/ResourcesPage'
 import FAQPage from './pages/FAQPage'
 import SuccessStoriesPage from './pages/SuccessStoriesPage'
 import Product from './pages/Product'
-
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   
   return (
     <Router>
       <div className="flex flex-col min-h-screen">
+      <ToastContainer position="top-right" autoClose={3000} />
         <Header />
         <main className="flex-1">
           <Routes>

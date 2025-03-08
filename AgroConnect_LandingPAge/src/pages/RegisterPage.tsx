@@ -18,7 +18,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from "../components/ui/select";
+} from "../components/ui/Select";
 
 // User Type Selection Component
 function UserTypeSelection({ selectedType, onSelect }: { selectedType: string; onSelect: (type: string) => void }) {
@@ -289,9 +289,9 @@ function DocumentUpload({ form }: { form: ReturnType<typeof useForm<RegisterForm
               <p className="text-xs text-gray-500">{t("documentUpload.fileSize.document")}</p>
             </div>
           </div>
-          {errors.proofDocument && (
-            <p className="text-sm text-red-500">{errors.proofDocument.message}</p>
-          )}
+          {errors.proofDocument && errors.proofDocument.message && (
+  <p className="text-sm text-red-500">{errors.proofDocument.message}</p>
+)}
         </div>
         <div className="space-y-2">
           <Label htmlFor="profilePhoto">{t("documentUpload.profilePhoto")}</Label>
@@ -392,13 +392,24 @@ export default function RegisterPage() {
         }
       }
     });
-    
+  
     try {
-      await axios.post("http://localhost:5000/api/user/register", formData, {
+      const response = await axios.post("http://localhost:5000/api/user/register", formData, {
         headers: { "Content-Type": "multipart/form-data" },
       });
-      form.reset();
-      setStep(5);
+    
+      console.log("Server Response:", response.data); // Debugging
+    
+      // Ensure the role is received correctly
+      if (response.data.token && response.data.userType) {
+        localStorage.setItem("authToken", response.data.token); // Store token
+        localStorage.setItem("userRole", response.data.userType ); // Store role
+    
+        // Redirect to the appropriate dashboard based on user role
+        window.location.href = `http://localhost:5174/${response.data.userType}`;
+      } else {
+        alert("Registration failed: Role information is missing.");
+      }
     } catch (error) {
       if (axios.isAxiosError(error)) {
         alert(`Registration failed: ${error.response?.data?.message || "Please try again later."}`);
@@ -408,7 +419,9 @@ export default function RegisterPage() {
     } finally {
       setIsSubmitting(false);
     }
+    
   };
+  
 
   const getStepFields = (currentStep: number): Array<keyof RegisterFormData> => {
     switch (currentStep) {

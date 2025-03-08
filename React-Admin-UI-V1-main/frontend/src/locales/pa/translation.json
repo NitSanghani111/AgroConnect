@@ -1,0 +1,525 @@
+{
+  "profile": {
+    "title": "ਖਰੀਦਦਾਰ ਪ੍ਰੋਫਾਈਲ",
+    "memberSince": "ਮੈਂਬਰਸ਼ਿਪ ਸ਼ੁਰੂ",
+    "cancel": "ਰੱਦ ਕਰੋ",
+    "email": "ਈਮੇਲ",
+    "phone": "ਫੋਨ",
+    "address": "ਪਤਾ",
+    "personalInfo": {
+      "title": "ਨਿੱਜੀ ਜਾਣਕਾਰੀ",
+      "buyer": {
+        "name": "ਜੌਨ ਡੋ",
+        "email": "john.doe@example.com",
+        "phone": "+91 98765 43210",
+        "address": "123 ਫਾਰਮ ਸਟਰੀਟ, ਗਰੀਨ ਵੈਲੀ, ਮੁੰਬਈ, ਮਹਾਰਾਸ਼ਟਰ - 400001"
+      }
+    },
+    "statistics": {
+      "title": "ਅੰਕੜੇ",
+      "totalOrders": "ਕੁੱਲ ਆਰਡਰ",
+      "totalAmount": "ਕੁੱਲ ਰਕਮ",
+      "favoriteProducts": "ਪਸੰਦੀਦਾ ਉਤਪਾਦ",
+      "products": {
+        "organicTomatoes": "ਜੈਵਿਕ ਟਮਾਟਰ",
+        "freshPotatoes": "ਤਾਜ਼ੇ ਆਲੂ",
+        "greenPeas": "ਹਰੇ ਮਟਰ",
+        "carrots": "ਗਾਜਰ",
+        "onions": "ਪਿਆਜ਼"
+      }
+    },
+    "purchaseHistory": {
+      "title": "ਖਰੀਦ ਇਤਿਹਾਸ",
+      "description": "ਤੁਹਾਡੀਆਂ ਹਾਲੀਆ ਖਰੀਦਾਂ",
+      "orderId": "ਆਰਡਰ ਆਈਡੀ",
+      "product": "ਉਤਪਾਦ",
+      "quantity": "ਮਾਤਰਾ",
+      "date": "ਤਾਰੀਖ",
+      "amount": "ਰਕਮ",
+      "status": "ਸਥਿਤੀ",
+      "statusValues": {
+        "delivered": "ਪਹੁੰਚਾਇਆ ਗਿਆ",
+        "inTransit": "ਆਵਾਜਾਈ ਵਿੱਚ"
+      },
+      "pagination": {
+        "previous": "ਪਿਛਲਾ",
+        "next": "ਅਗਲਾ",
+        "page": "ਪੰਨਾ",
+        "of": "ਦਾ"
+      }
+    }
+  },
+  "title": "ਕਿਸਾਨ ਦਾ ਬਾਜ਼ਾਰ",
+  "description": "ਭਾਰਤ ਭਰ ਦੇ ਕਿਸਾਨਾਂ ਤੋਂ ਸਿੱਧਾ ਤਾਜ਼ਾ, ਸਥਾਨਕ ਉਤਪਾਦ ਲੱਭੋ",
+  "searchPlaceholder": "ਉਤਪਾਦ ਖੋਜੋ...",
+  "allCategories": "ਸਾਰੀਆਂ ਸ਼੍ਰੇਣੀਆਂ",
+  "allLocations": "ਸਾਰੇ ਸਥਾਨ",
+  "noProductsFound": "ਤੁਹਾਡੇ ਮਾਪਦੰਡਾਂ ਨਾਲ ਮੇਲ ਖਾਂਦੇ ਕੋਈ ਉਤਪਾਦ ਨਹੀਂ ਮਿਲੇ।",
+  "knowMore": "ਹੋਰ ਜਾਣੋ",
+  "category": "ਸ਼੍ਰੇਣੀ",
+  "location": "ਸਥਾਨ",
+  "seller": "ਵਿਕਰੇਤਾ",
+  "previous": "ਪਿਛਲਾ",
+  "next": "ਅਗਲਾ",
+  "available": "ਉਪਲਬਧ",
+  "quality": "ਗੁਣਵੱਤਾ",
+  "qualities": {
+    "Organic": "ਜੈਵਿਕ",
+    "Fresh": "ਤਾਜ਼ਾ",
+    "Aged": "ਪੁਰਾਣਾ"
+  },
+  "categories": {
+    "Fruits": "ਫਲ",
+    "Vegetables": "ਸਬਜ਼ੀਆਂ",
+    "Grains": "ਅਨਾਜ",
+    "Legumes": "ਦਾਲਾਂ"
+  },
+  "products": {
+    "Premium Apples": "ਪ੍ਰੀਮੀਅਮ ਸੇਬ",
+    "Organic Mangoes": "ਜੈਵਿਕ ਅੰਬ",
+    "Fresh Tomatoes": "ਤਾਜ਼ੇ ਟਮਾਟਰ",
+    "Basmati Rice": "ਬਾਸਮਤੀ ਚਾਵਲ",
+    "Carrots": "ਗਾਜਰ",
+    "Potatoes": "ਆਲੂ",
+    "Onions": "ਪਿਆਜ਼",
+    "Garlic": "ਲਸਣ",
+    "Chickpeas": "ਛੋਲੇ",
+    "Lentils": "ਦਾਲ"
+  },
+  "locations": {
+    "Maharashtra": "ਮਹਾਰਾਸ਼ਟਰ",
+    "Gujarat": "ਗੁਜਰਾਤ",
+    "Karnataka": "ਕਰਨਾਟਕ",
+    "Punjab": "ਪੰਜਾਬ",
+    "Haryana": "ਹਰਿਆਣਾ",
+    "Madhya Pradesh": "ਮੱਧ ਪ੍ਰਦੇਸ਼",
+    "Andhra Pradesh": "ਆਂਧਰਾ ਪ੍ਰਦੇਸ਼",
+    "Rajasthan": "ਰਾਜਸਥਾਨ"
+  },
+  "descriptions": {
+    "Premium Apples": "ਤਾਜ਼ੇ ਅਤੇ ਰਸੀਲੇ ਸੇਬ।",
+    "Organic Mangoes": "ਪੱਕੇ ਅੰਬ, ਸਮੂਦੀ ਲਈ ਬਿਲਕੁਲ ਸਹੀ।",
+    "Fresh Tomatoes": "ਖਾਣਾ ਪਕਾਉਣ ਲਈ ਉੱਚ ਗੁਣਵੱਤਾ ਵਾਲੇ ਟਮਾਟਰ।",
+    "Basmati Rice": "ਲੰਬੇ ਦਾਣੇ ਵਾਲੇ ਬਾਸਮਤੀ ਚਾਵਲ, ਖਾਣੇ ਲਈ ਬਿਲਕੁਲ ਸਹੀ।",
+    "Carrots": "ਕੁਰਕਰੀ ਅਤੇ ਮਿੱਠੀ ਗਾਜਰ।",
+    "Potatoes": "ਬਹੁ-ਉਪਯੋਗੀ ਅਤੇ ਸੁਆਦੀ ਆਲੂ।",
+    "Onions": "ਖਾਣਾ ਪਕਾਉਣ ਲਈ ਤਾਜਾ ਪਿਆਜ਼।",
+    "Garlic": "ਮਜ਼ਬੂਤ ਅਤੇ ਸੁਆਦੀ ਲਸਣ।",
+    "Chickpeas": "ਪ੍ਰੋਟੀਨ ਨਾਲ ਭਰਪੂਰ ਛੋਲੇ।",
+    "Lentils": "ਪੌਸ਼ਟਿਕ ਦਾਲ।"
+  },
+  "buyers": {
+    "Krishna Farms": "ਕ੍ਰਿਸ਼ਨਾ ਫਾਰਮਸ",
+    "Sunshine Orchards": "ਸਨਸ਼ਾਈਨ ਓਰਚਾਰਡਸ",
+    "Green Valley": "ਗ੍ਰੀਨ ਵੈਲੀ",
+    "Golden Fields": "ਗੋਲਡਨ ਫੀਲਡਸ",
+    "Fresh Farms": "ਫ੍ਰੈਸ਼ ਫਾਰਮਸ",
+    "Farm Fresh": "ਫਾਰਮ ਫ੍ਰੈਸ਼",
+    "Onion Growers": "ਪਿਆਜ਼ ਉਗਾਉਣ ਵਾਲੇ",
+    "Garlic Farms": "ਲਸਣ ਫਾਰਮਸ",
+    "Legume Growers": "ਦਾਲਾਂ ਉਗਾਉਣ ਵਾਲੇ",
+    "Lentil Farms": "ਦਾਲ ਫਾਰਮਸ"
+  },
+  "negotiate": "ਗੱਲਬਾਤ",
+  "readMore": "ਹੋਰ ਪੜ੍ਹੋ",
+  "viewLess": "ਘੱਟ ਵੇਖੋ",
+  "productInfo": "ਉਤਪਾਦ ਜਾਣਕਾਰੀ",
+  "quantity": "ਮਾਤਰਾ",
+  "priceRange": "ਕੀਮਤ ਸੀਮਾ",
+  "farmerDetails": "ਕਿਸਾਨ ਵੇਰਵੇ",
+  "name": "ਨਾਮ",
+  "contact": "ਸੰਪਰਕ",
+  "location1": "ਸਥਾਨ",
+  "detailedInformation": "ਵਿਸਥਾਰਪੂਰਵਕ ਜਾਣਕਾਰੀ",
+  "productCertification": "ਉਤਪਾਦ ਪ੍ਰਮਾਣੀਕਰਨ",
+  "landType": "ਜ਼ਮੀਨ ਦੀ ਕਿਸਮ",
+  "farmingPractices": "ਖੇਤੀ ਵਿਧੀਆਂ",
+  "qualityParameters": "ਗੁਣਵੱਤਾ ਮਾਪਦੰਡ",
+  "farmerExperience": "ਕਿਸਾਨ ਅਨੁਭਵ",
+  "certificationText": "FSSAI ਦੁਆਰਾ ਜੈਵਿਕ ਪ੍ਰਮਾਣਿਤ",
+  "landTypeText": "ਉਪਜਾਊ ਕਾਲੀ ਮਿੱਟੀ",
+  "farmingPracticesList": {
+    "practice1": "ਰਸਾਇਣਕ ਕੀਟਨਾਸ਼ਕਾਂ ਦੀ ਵਰਤੋਂ ਨਹੀਂ",
+    "practice2": "ਕੇਵਲ ਕੁਦਰਤੀ ਖਾਦ",
+    "practice3": "ਟਿਕਾਊ ਸਿੰਚਾਈ ਵਿਧੀਆਂ",
+    "practice4": "ਫਸਲ ਚੱਕਰ ਦਾ ਅਭਿਆਸ"
+  },
+  "qualityParametersList": {
+    "param1": "ਸਰਵੋਤਮ ਪੱਕਣ 'ਤੇ ਹੱਥੀਂ ਤੋੜਿਆ",
+    "param2": "ਧਿਆਨ ਨਾਲ ਛਾਂਟਿਆ ਅਤੇ ਗ੍ਰੇਡ ਕੀਤਾ",
+    "param3": "ਤਾਪਮਾਨ ਨਿਯੰਤਰਿਤ ਵਾਤਾਵਰਣ 'ਚ ਸਟੋਰ",
+    "param4": "ਨਿਯਮਿਤ ਗੁਣਵੱਤਾ ਜਾਂਚ"
+  },
+  "experienceText": "ਜੈਵਿਕ ਖੇਤੀ 'ਚ 15+ ਸਾਲਾਂ ਦਾ ਤਜਰਬਾ",
+  "purchaseDetails": {
+      "title": "ਖਰੀਦ ਵੇਰਵੇ",
+      "backButton": "ਵਾਪਸ ਵੇਚੇ ਗਏ ਉਤਪਾਦਾਂ 'ਤੇ",
+      "tableHeaders": {
+        "orderId": "ਆਰਡਰ ਆਈਡੀ",
+        "productName": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+        "buyerName": "ਖਰੀਦਦਾਰ ਦਾ ਨਾਮ",
+        "quantity": "ਮਾਤਰਾ",
+        "saleDate": "ਵਿਕਰੀ ਦੀ ਤਾਰੀਖ",
+        "farmerName": "ਖੇਤੀਬਾੜੀ ਦਾ ਨਾਮ",
+        "price": "ਕੀਮਤ",
+        "status": "ਸਥਿਤੀ",
+        "paymentMethod": "ਭੁਗਤਾਨ ਦਾ ਤਰੀਕਾ",
+        "deliveryAddress": "ਡਿਲਿਵਰੀ ਦਾ ਪਤਾ"
+      },
+      "status": {
+        "delivered": "ਪਹੁੰਚਾਇਆ ਗਿਆ",
+        "intransit": "ਰਸਤੇ 'ਚ",
+        "processing": "ਪ੍ਰੋਸੈਸਿੰਗ"
+      }
+    },
+    "products1": {
+      "tomatoes": "ਟਮਾਟਰ",
+      "potatoes": "ਆਲੂ",
+      "carrots": "ਗਾਜਰ",
+      "onions": "ਪਿਆਜ਼",
+      "garlic": "ਲਸਣ"
+    },
+    "buyers1": {
+      "john_doe": "ਜੌਨ ਡੋ",
+      "alice_smith": "ਐਲਿਸ ਸਮਿੱਥ",
+      "bob_johnson": "ਬੌਬ ਜੌਨਸਨ",
+      "charlie_brown": "ਚਾਰਲੀ ਬ੍ਰਾਉਨ",
+      "daisy_white": "ਡੇਜ਼ੀ ਵ੍ਹਾਈਟ"
+    },
+    "farmers": {
+      "farmer_bob": "ਖੇਤੀਬਾੜੀ ਬੌਬ",
+      "farmer_joe": "ਖੇਤੀਬਾੜੀ ਜੋ",
+      "farmer_alice": "ਖੇਤੀਬਾੜੀ ਐਲਿਸ",
+      "farmer_charlie": "ਖੇਤੀਬਾੜੀ ਚਾਰਲੀ",
+      "farmer_daisy": "ਖੇਤੀਬਾੜੀ ਡੇਜ਼ੀ"
+    },
+    "paymentMethods": {
+      "cash_on_delivery": "ਡਿਲਿਵਰੀ 'ਤੇ ਨਕਦ",
+      "online_payment": "ਆਨਲਾਈਨ ਭੁਗਤਾਨ"
+    },
+    "deliveryAddresses": {
+      "123 Main St, Mumbai, Maharashtra": "123 ਮੇਨ ਗਲੀ, ਮੁੰਬਈ, ਮਹਾਰਾਸ਼ਟਰ",
+      "456 Elm St, Pune, Maharashtra": "456 ਐਲਮ ਗਲੀ, ਪੁਣੇ, ਮਹਾਰਾਸ਼ਟਰ",
+      "789 Pine St, Bangalore, Karnataka": "789 ਪਾਈਨ ਗਲੀ, ਬੈਂਗਲੌਰ, ਕਰਨਾਟਕ",
+      "321 Oak St, Hyderabad, Telangana": "321 ਓਕ ਗਲੀ, ਹੈਦਰਾਬਾਦ, ਤੇਲੰਗਾਨਾ",
+      "654 Maple St, Chennai, Tamil Nadu": "654 ਮੇਪਲ ਗਲੀ, ਚੇਨਈ, ਤਮਿਲਨਾਡੂ"
+    },
+    "buyerAnalytics": {
+      "title": "ਖਰੀਦਦਾਰ ਵਿਸ਼ਲੇਸ਼ਣ ਡੈਸ਼ਬੋਰਡ",
+      "cityProducts": "ਸ਼ਹਿਰ ਬਨਾਮ ਖਰੀਦੇ ਗਏ ਉਤਪਾਦ",
+      "buyerQuantity": "ਖਰੀਦਦਾਰ ਮਾਤਰਾ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "productProfit": "ਉਤਪਾਦ ਨਫਾ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "productDiscount": "ਉਤਪਾਦ ਛੋਟ ਵੰਡ",
+      "city": "ਸ਼ਹਿਰ",
+      "quantity": "ਮਾਤਰਾ",
+      "buyer": "ਖਰੀਦਦਾਰ",
+      "profit": "ਨਫਾ",
+      "product": "ਉਤਪਾਦ",
+      "productsBought": "ਖਰੀਦੇ ਗਏ ਉਤਪਾਦ",
+      "cities": {
+        "mumbai": "ਮੁੰਬਈ",
+        "delhi": "ਦਿੱਲੀ",
+        "bangalore": "ਬੈਂਗਲੁਰੂ",
+        "chennai": "ਚੇਨਈ",
+        "kolkata": "ਕੋਲਕਾਤਾ"
+      },
+      "products": {
+        "tomatoes": "ਟਮਾਟਰ",
+        "potatoes": "ਆਲੂ",
+        "onions": "ਪਿਆਜ਼",
+        "carrots": "ਗਾਜਰ",
+        "cucumbers": "ਖੀਰਾ"
+      },
+      "buyers": {
+        "johnDoe": "ਜੌਨ ਡੋ",
+        "janeSmith": "ਜੇਨ ਸਮਿਥ",
+        "bobJohnson": "ਬੌਬ ਜੌਨਸਨ",
+        "aliceBrown": "ਐਲਿਸ ਬ੍ਰਾਉਨ",
+        "charlieWilson": "ਚਾਰਲੀ ਵਿਲਸਨ"
+      }
+    },
+    "welcome": "ਤੁਹਾਡੀ ਖਾਲੀ ਐਪ ਵਿੱਚ ਜੀ ਆਇਆਂ ਨੂੰ",
+    "startBuilding": "ਇੱਥੇ ਆਪਣਾ ਸ਼ਾਨਦਾਰ ਪ੍ਰੋਜੈਕਟ ਬਣਾਉਣਾ ਸ਼ੁਰੂ ਕਰੋ!",
+    "addProduct": "ਉਤਪਾਦ ਜੋੜੋ",
+    "viewProducts": "ਉਤਪਾਦ ਵੇਖੋ",
+    "addNewProduct": "ਨਵਾਂ ਉਤਪਾਦ ਜੋੜੋ",
+    "farmerName": "ਕਿਸਾਨ ਦਾ ਨਾਮ",
+    "enterFarmerName": "ਕਿਸਾਨ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+    "productImage": "ਉਤਪਾਦ ਚਿੱਤਰ URL",
+    "enterImageURL": "ਚਿੱਤਰ URL ਦਰਜ ਕਰੋ",
+    "productName": "ਉਤਪਾਦ ਦਾ ਨਾਮ",
+    "enterProductName": "ਉਤਪਾਦ ਦਾ ਨਾਮ ਦਰਜ ਕਰੋ",
+    "price": "ਕੀਮਤ (₹)",
+    "quantity1": "ਮਾਤਰਾ (ਕਿ.ਗ੍ਰਾ)",
+    "description1": "ਵੇਰਵਾ",
+    "enterDescription": "ਉਤਪਾਦ ਦਾ ਵੇਰਵਾ ਦਰਜ ਕਰੋ",
+    "address": "ਪਤਾ",
+    "enterAddress": "ਪਤਾ ਦਰਜ ਕਰੋ",
+    "addingProduct": "ਉਤਪਾਦ ਜੋੜਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
+    "success": "ਸਫਲਤਾ",
+    "productAddedSuccess": "ਉਤਪਾਦ ਸਫਲਤਾਪੂਰਵਕ ਜੋੜਿਆ ਗਿਆ",
+
+    "products2":{
+        "loading": "ਉਤਪਾਦ ਲੋਡ ਹੋ ਰਹੇ ਹਨ...",
+  "addProduct": "ਉਤਪਾਦ ਸ਼ਾਮਲ ਕਰੋ",
+  "viewProducts": "ਉਤਪਾਦ ਵੇਖੋ",
+  "All Products": "ਸਾਰੇ ਉਤਪਾਦ",
+  "noProducts": "ਹਾਲੇ ਤੱਕ ਕੋਈ ਉਤਪਾਦ ਸ਼ਾਮਲ ਨਹੀਂ ਕੀਤਾ ਗਿਆ",
+  "farmer": "ਕਿਸਾਨ",
+  "quantity": "ਮਾਤਰਾ",
+  "description": "ਵਰਣਨ",
+  "address": "ਪਤਾ"
+    },
+    "soldProducts": "ਵੇਚੇ ਗਏ ਪ੍ਰੋਡਕਟ",
+  "productName1": "ਪ੍ਰੋਡਕਟ ਦਾ ਨਾਮ",
+  "buyerName": "ਖਰੀਦਦਾਰ ਦਾ ਨਾਮ",
+  "quantitySold": "ਵੇਚੀ ਗਈ ਮਾਤਰਾ",
+  "saleDate": "ਵਿਕਰੀ ਦੀ ਤਾਰੀਖ",
+  "farmerName1": "ਕਿਸਾਨ ਦਾ ਨਾਮ",
+  "price1": "ਕੀਮਤ (₹)",
+  "noSoldProducts": "ਕੋਈ ਵੇਚੇ ਗਏ ਪ੍ਰੋਡਕਟ ਨਹੀਂ ਮਿਲੇ",
+  "tomatoes": "ਟਮਾਟਰ",
+  "potatoes": "ਆਲੂ",
+  "carrots": "ਗਾਜਰ",
+  "lettuce": "ਸਲਾਦ ਪੱਤਾ",
+  "cucumbers": "ਖੀਰਾ",
+  "johnDoe": "ਜੌਨ ਡੋ",
+  "janeSmith": "ਜੇਨ ਸਮਿਥ",
+  "michaelJohnson": "ਮਾਈਕਲ ਜੌਨਸਨ",
+  "emilyDavis": "ਏਮਿਲੀ ਡੇਵਿਸ",
+  "sarahWilson": "ਸਾਰਾ ਵਿਲਸਨ",
+  "farmerBob": "ਕਿਸਾਨ ਬੌਬ",
+  "farmerAlice": "ਕਿਸਾਨ ਐਲਿਸ",
+  "farmerCharlie": "ਕਿਸਾਨ ਚਾਰਲੀ",
+  "farmerDavid": "ਕਿਸਾਨ ਡੇਵਿਡ",
+  "farmerEve": "ਕਿਸਾਨ ਈਵ",
+  "months": {
+    "Jan": "ਜਨਵਰੀ",
+    "Feb": "ਫਰਵਰੀ",
+    "Mar": "ਮਾਰਚ",
+    "Apr": "ਅਪ੍ਰੈਲ",
+    "May": "ਮਈ"
+  },
+  "Analytics": {
+    "title": "ਵਿਕਰੀ ਵਿਸ਼ਲੇਸ਼ਣ ਡੈਸ਼ਬੋਰਡ",
+    "quotes": {
+      "text": "ਤੁਹਾਡੇ ਵਪਾਰ ਦੀ ਵਾਧਾ ਦਾ ਵਿਸ਼ਲੇਸ਼ਣ"
+    },
+    "products": {
+      "apples": "ਸੇਬ",
+      "bananas": "ਕੇਲੇ",
+      "oranges": "ਸੰਤਰੇ",
+      "grapes": "ਅੰਗੂਰ",
+      "rice": "ਚਾਵਲ",
+      "wheat": "ਕਣਕ",
+      "oats": "ਜੌਂ",
+      "corn": "ਮੱਕੀ"
+    },
+    "sales": {
+      "fruits": "ਫਲਾਂ ਦੀ ਵਿਕਰੀ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "grains": "ਅਨਾਜ ਦੀ ਵਿਕਰੀ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "Profit Fruits": "ਫਲਾਂ ਦਾ ਲਾਭ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "Profit Grains": "ਅਨਾਜ ਦਾ ਲਾਭ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "discountsFruits": "ਫਲਾਂ ਦੀ ਛੂਟ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "discountsGrains": "ਅਨਾਜ ਦੀ ਛੂਟ ਵਿਸ਼ਲੇਸ਼ਣ",
+      "ratingsFruits": "ਫਲਾਂ ਦੀ ਰੇਟਿੰਗ",
+      "ratingsGrains": "ਅਨਾਜ ਦੀ ਰੇਟਿੰਗ",
+      "citySales": "ਸ਼ਹਿਰ-ਵਾਰ ਵਿਕਰੀ ਵੰਡ"
+    }
+  },
+"profile1": {
+    "title": "ਪ੍ਰੋਫਾਈਲ",
+    "additionalInfo": "ਵਾਧੂ ਜਾਣਕਾਰੀ",
+    "editProfile": "ਪ੍ਰੋਫਾਈਲ ਸੋਧੋ",
+    "saveProfile": "ਪ੍ਰੋਫਾਈਲ ਸੰਭਾਲੋ",
+    "profileSaved": "ਪ੍ਰੋਫਾਈਲ ਸੰਭਾਲਿਆ ਗਿਆ",
+    "profileUpdated": "ਤੁਹਾਡਾ ਪ੍ਰੋਫਾਈਲ ਸਫਲਤਾਪੂਰਵਕ ਅਪਡੇਟ ਕੀਤਾ ਗਿਆ ਹੈ।",
+    "labels": {
+      "email": "ਈਮੇਲ",
+      "phone": "ਫੋਨ",
+      "location": "ਸਥਾਨ",
+      "farmName": "ਫਾਰਮ ਦਾ ਨਾਮ",
+      "experience": "ਤਜਰਬਾ ਪੱਧਰ",
+      "productsGrown": "ਉਗਾਏ ਗਏ ਉਤਪਾਦ",
+      "socialMedia": "ਸੋਸ਼ਲ ਮੀਡੀਆ",
+      "facebook": "ਫੇਸਬੁੱਕ",
+      "instagram": "ਇੰਸਟਾਗ੍ਰਾਮ",
+      "twitter": "ਟਵਿੱਟਰ"
+    },
+    "data": {
+      "fullName": "ਜੌਨ ਡੋ",
+      "email": "johndoe6@gmail.com",
+      "phone": "081-234-5678",
+      "location": "ਸੈਨ ਫਰਾਂਸਿਸਕੋ, CA",
+      "farmName": "ਡੋ ਫਾਰਮਜ਼",
+      "experience": "5 ਸਾਲ",
+      "productsGrown": [
+        "ਟਮਾਟਰ",
+        "ਆਲੂ",
+        "ਗਾਜਰ",
+        "ਸਲਾਦ",
+        "ਖੀਰੇ"
+      ],
+      "socialMedia": {
+        "facebook": "https://facebook.com/fransahw",
+        "instagram": "https://instagram.com/fransahw",
+        "twitter": "https://twitter.com/fransahw"
+      }
+    }
+  },
+  
+  "menu": {
+    "addProducts": "ਉਤਪਾਦ ਸ਼ਾਮਲ ਕਰੋ",
+    "manageProducts": "ਉਤਪਾਦਾਂ ਦਾ ਪ੍ਰਬੰਧ ਕਰੋ",
+    "requests": "ਬੇਨਤੀਆਂ",
+    "soldProducts": "ਵੇਚੇ ਗਏ ਉਤਪਾਦ",
+    "analytics": "ਵਿਸ਼ਲੇਸ਼ਣ",
+    "products": "ਉਤਪਾਦ",
+    "orders": "ਆਰਡਰ",
+    "Help": "ਮਦਦ"    
+  },
+  "Help": {
+    "title": "ਕਿਸਾਨ ਮਦਦ ਫਾਰਮ",
+    "farmerName": "ਕਿਸਾਨ ਦਾ ਨਾਮ",
+    "contactNo": "ਸੰਪਰਕ ਨੰਬਰ",
+    "email": "ਈਮੇਲ ਪਤਾ",
+    "date": "ਤਾਰੀਖ",
+    "address": "ਕਿਸਾਨ ਦਾ ਪਤਾ",
+    "issueDescription": "ਉਤਪਾਦ ਸਮੱਸਿਆ ਦਾ ਵੇਰਵਾ",
+ "photo": "ਕਿਸਾਨ ਫੋਟੋ",
+    "submit": "ਮਦਦ ਦੀ ਬੇਨਤੀ ਭੇਜੋ",
+    "required": "ਇਹ ਖੇਤਰ ਲਾਜ਼ਮੀ ਹੈ",
+    "missingInformation": {
+      "title": "ਗੈਰਹਾਜ਼ਰ ਜਾਣਕਾਰੀ",
+      "description": "ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੇ ਲਾਜ਼ਮੀ ਖੇਤਰ ਭਰੋ।"
+    },
+    "helpRequestSubmitted": {
+      "title": "ਮਦਦ ਦੀ ਬੇਨਤੀ ਭੇਜੀ ਗਈ",
+      "description": "ਤੁਹਾਡੀ ਸਮੱਸਿਆ ਸਫਲਤਾਪੂਰਵਕ ਭੇਜੀ ਗਈ ਹੈ। ਅਸੀਂ ਜਲਦੀ ਹੀ ਤੁਹਾਡੇ ਨਾਲ ਸੰਪਰਕ ਕਰਾਂਗੇ।"
+    }
+  },
+  "BuyerHelp": {
+    "customerSupport": "ਗਾਹਕ ਸਹਾਇਤਾ",
+    "formTitle": "ਖਰੀਦਦਾਰ ਸਹਾਇਤਾ ਫਾਰਮ",
+    "formDescription": "ਕਿਰਪਾ ਕਰਕੇ ਆਪਣੀ ਸਮੱਸਿਆ ਬਾਰੇ ਵੇਰਵਾ ਦਿਓ ਅਤੇ ਅਸੀਂ ਜਲਦੀ ਤੋਂ ਜਲਦੀ ਤੁਹਾਡੀ ਸਹਾਇਤਾ ਕਰਾਂਗੇ।",
+    "buyerPhoto": "ਖਰੀਦਦਾਰ ਫੋਟੋ",
+    "changePhoto": "ਫੋਟੋ ਬਦਲੋ",
+    "uploadPhoto": "ਫੋਟੋ ਅਪਲੋਡ ਕਰੋ",
+    "photoInstructions": "JPG, PNG ਜਾਂ GIF 10MB ਤੱਕ",
+    "buyerName": "ਖਰੀਦਦਾਰ ਦਾ ਨਾਮ",
+    "contactNo": "ਸੰਪਰਕ ਨੰਬਰ",
+    "email": "ਈਮੇਲ ਪਤਾ",
+    "address": "ਪਤਾ",
+    "productIssue": "ਉਤਪਾਦ ਸਮੱਸਿਆ ਦਾ ਵੇਰਵਾ",
+    "submit": "ਮਦਦ ਦੀ ਬੇਨਤੀ ਭੇਜੋ",
+    "missingInformation": {
+      "title": "ਗੁੰਮ ਹੋਈ ਜਾਣਕਾਰੀ",
+      "description": "ਕਿਰਪਾ ਕਰਕੇ ਸਾਰੇ ਲਾਜ਼ਮੀ ਖੇਤਰ ਭਰੋ।"
+    },
+    "helpRequestSubmitted": {
+      "title": "ਮਦਦ ਦੀ ਬੇਨਤੀ ਭੇਜੀ ਗਈ",
+      "description": "ਤੁਹਾਡੀ ਸਮੱਸਿਆ ਸਫਲਤਾਪੂਰਵਕ ਭੇਜੀ ਗਈ ਹੈ। ਅਸੀਂ ਜਲਦੀ ਤੁਹਾਡੇ ਕੋਲ ਵਾਪਸ ਆਵਾਂਗੇ।"
+    }
+  },
+  "title1": "ਉਤਪਾਦ ਬੇਨਤੀਆਂ",
+  "requests": [
+    {
+      "id": "1",
+      "buyerName": "ਰਾਹੁਲ ਸ਼ਰਮਾ",
+      "productName": "ਜੈਵਿਕ ਟਮਾਟਰ",
+      "farmerName": "ਅੰਕਿਤ ਸਿੰਘ",
+      "quantity": "50 ਕਿਲੋਗ੍ਰਾਮ",
+      "requestedPrice": 2000,
+      "status": "ਲੰਬਿਤ"
+ },
+    {
+      "id": "2",
+      "buyerName": "ਪ੍ਰਿਆ ਪਟੇਲ",
+      "productName": "ਪ੍ਰੀਮੀਅਮ ਚੌਲ",
+      "farmerName": "ਅੰਕਿਤ ਸਿੰਘ",
+      "quantity": "100 ਕਿਲੋਗ੍ਰਾਮ",
+      "requestedPrice": 5000,
+      "status": "ਲੰਬਿਤ"
+    },
+    {
+      "id": "3",
+      "buyerName": "ਅਮਿਤ ਕੁਮਾਰ",
+      "productName": "ਤਾਜੇ ਸੇਬ",
+      "farmerName": "ਅੰਕਿਤ ਸਿੰਘ",
+      "quantity": "30 ਕਿਲੋਗ੍ਰਾਮ",
+      "requestedPrice": 3000,
+      "status": "ਲੰਬਿਤ"
+    },
+    {
+      "id": "4",
+      "buyerName": "ਭਾਰਤ ਭਾਈ",
+      "productName": "ਲਸਣ",
+      "farmerName": "ਪ੍ਰਭੂ ਭਾਈ",
+      "quantity": "30 ਕਿਲੋਗ੍ਰਾਮ",
+      "requestedPrice": 2000,
+      "status": "ਲੰਬਿਤ"
+    },
+    {
+      "id": "5",
+      "buyerName": "ਨਿਤਿਨ ਭਾਈ",
+      "productName": "ਜੈਵਿਕ ਆਮ",
+      "farmerName": "ਮੁਕੇਸ਼ ਭਾਈ",
+      "quantity": "20 ਕਿਲੋਗ੍ਰਾਮ",
+      "requestedPrice": 1500,
+      "status": "ਲੰਬਿਤ"
+    }
+  ],
+  "accepted": "ਮੰਜ਼ੂਰ",
+  "pending": "ਲੰਬਿਤ",
+  "acceptSuccess": "ਬੇਨਤੀ ਸਫਲਤਾਪੂਰਵਕ ਮੰਜ਼ੂਰ ਕੀਤੀ ਗਈ!",
+  "rejectSuccess": "ਬੇਨਤੀ ਨਕਾਰ ਦਿੱਤੀ ਗਈ ਅਤੇ ਹਟਾਈ ਗਈ!",
+  "noRequests": "ਕੋਈ ਬੇਨਤੀਆਂ ਨਹੀਂ ਮਿਲੀਆਂ",
+
+  "requests1": {
+    "title": "ਉਤਪਾਦ ਬੇਨਤੀਆਂ",
+    "noRequests": "ਕੋਈ ਬੇਨਤੀਆਂ ਨਹੀਂ ਮਿਲੀਆਂ",
+    "tableHeaders": {
+      "product": "ਉਤਪਾਦ",
+      "buyerName": "ਖਰੀਦਦਾਰ ਦਾ ਨਾਮ",
+      "quantity": "ਮਾਤਰਾ",
+      "requestedPrice": "ਬੇਨਤੀ ਕੀਤੀ ਕੀਮਤ",
+      "status": "ਸਥਿਤੀ",
+      "actions": "ਕਾਰਵਾਈਆਂ",
+      "farmer": "ਕਿਸਾਨ"
+    },
+    "status": {
+      "accepted": "ਸਵੀਕਾਰ ਕੀਤਾ",
+      "pending": "ਬਕਾਇਆ"
+    },
+    "actions": {
+      "accept": "ਸਵੀਕਾਰ ਕਰੋ",
+      "reject": "ਰੱਦ ਕਰੋ"
+    },
+    "notifications": {
+      "accepted": "ਬੇਨਤੀ ਸਫਲਤਾਪੂਰਵਕ ਸਵੀਕਾਰ ਕੀਤੀ ਗਈ!",
+      "rejected": "ਬੇਨਤੀ ਰੱਦ ਕੀਤੀ ਗਈ ਅਤੇ ਹਟਾ ਦਿੱਤੀ ਗਈ!"
+    },
+    "farmers": {
+      "ankitSingh": "ਅੰਕਿਤ ਸਿੰਘ",
+      "prabhuBhai": "ਪ੍ਰਭੂ ਭਾਈ",
+      "mukeshBhai": "ਮੁਕੇਸ਼ ਭਾਈ"
+    },
+    "buyers": {
+      "rahulSharma": "ਰਾਹੁਲ ਸ਼ਰਮਾ",
+      "priyaPatel": "ਪ੍ਰਿਯਾ ਪਟੇਲ",
+      "amitKumar": "ਅਮਿਤ ਕੁਮਾਰ",
+      "bharatBhai": "ਭਰਤ ਭਾਈ",
+      "nitinBhai": "ਨਿਤਿਨ ਭਾਈ"
+    },
+    "products": {
+      "organicTomatoes": "ਜੈਵਿਕ ਟਮਾਟਰ",
+      "premiumRice": "ਪ੍ਰੀਮੀਅਮ ਚਾਵਲ",
+      "freshApples": "ਤਾਜ਼ੇ ਸੇਬ",
+      "garlic": "ਲਸਣ",
+      "organicMangoes": "ਜੈਵਿਕ ਅੰਬ"
+    },
+    "currency": "₹"
+  },
+   "My Profile": "ਮੇਰੀ ਪ੍ਰੋਫਾਈਲ",
+  "Log Out": "ਲੌਗ ਆਉਟ"
+}

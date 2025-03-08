@@ -1,0 +1,212 @@
+{
+    "welcome": "तुमच्या ब्लँक अॅपमध्ये आपले स्वागत आहे",
+    "startBuilding": "येथे तुमचा अद्भुत प्रोजेक्ट बनवायला सुरुवात करा!",
+    "Add Product": "उत्पादन जोडा",
+    "View Products": "उत्पादने पहा",
+    "addNewProduct": "नवीन उत्पादन जोडा",
+    "farmerName": "शेतकऱ्याचे नाव",
+    "enterFarmerName": "शेतकऱ्याचे नाव प्रविष्ट करा",
+    "productImage": "उत्पादन प्रतिमा URL",
+    "enterImageURL": "प्रतिमा URL प्रविष्ट करा",
+    "productName": "उत्पादनाचे नाव",
+    "enterProductName": "उत्पादनाचे नाव प्रविष्ट करा",
+    "price": "किंमत (₹)",
+    "quantity": "प्रमाण (कि.ग्रॅ)",
+    "description": "वर्णन",
+    "enterDescription": "उत्पादनाचे वर्णन प्रविष्ट करा",
+    "address": "पत्ता",
+    "enterAddress": "पत्ता प्रविष्ट करा",
+    "addingProduct": "उत्पादन जोडत आहे...",
+    "success": "यशस्वी",
+    "productAddedSuccess": "उत्पादन यशस्वीरित्या जोडले",
+
+    "products":{
+        "loading": "उत्पादे लोड करत आहेत...",
+  "addProduct": "उत्पाद जोडा",
+  "viewProducts": "उत्पादे पहा",
+  "All Products": "सर्व उत्पादे",
+  "noProducts": "अद्याप कोणतेही उत्पाद जोडलेले नाही",
+  "farmer": "शेतकरी",
+  "quantity": "प्रमाण",
+  "description": "वर्णन",
+  "address": "पत्ता"
+    },
+    
+      "Profile": {
+    "title": "कृषक प्रोफाइल",
+    "farmerData": {
+      "fullName": "फ्रांस विनाटा",
+      "email": "franswinata6@gmail.com",
+      "phone": "081-234-5678",
+      "location": "मालंग, एसएम 74810",
+      "farmName": "ग्रीन व्हॅली फार्म",
+      "experience": "5 वर्ष",
+      "productsGrown": {
+        "Tomatoes": "टोमॅटो",
+        "Potatoes": "आलू",
+        "Carrots": "गाजर",
+        "Lettuce": "लेट्यूस",
+        "Cucumbers": "काकडी"
+      },
+      "socialMedia": {
+        "facebook": "https://facebook.com/fransahw",
+        "instagram": "https://instagram.com/fransahw",
+        "twitter": "https://twitter.com/fransahw"
+      },
+      "rating": 4.5
+    },
+    "additionalInformation": {
+      "title": "अतिरिक्त माहिती",
+      "farmName": "फार्मचे नाव",
+      "experienceLevel": "अनुभव स्तर",
+      "productsGrown": "उगवलेले उत्पाद",
+      "socialMedia": "सोशल मीडिया"
+    },
+    "accountActions": {
+      "editProfile": "माझा प्रोफाइल संपादित करा",
+      "deleteAccount": "माझा खाता हटवा"
+    },
+    "deleteConfirmationModal": {
+      "title": "क्रिया पुष्टी!",
+      "message": "आपण आपला खाता हटवू इच्छिता का?",
+      "confirm": "होय, मला माझा खाता हटवायचा आहे",
+      "cancel": "नाही, मला तसे वाटत नाही"
+    }
+  },
+  
+    "Analytics": {
+      "title": "विश्लेषण डॅशबोर्ड",
+      "quotes": {
+        "text": "“डेटा नवीन तेल आहे.”"
+      },
+      "sales": {
+        "fruits": "फळांची विक्री विरुद्ध महिना",
+        "grains": "अनाजाची विक्री विरुद्ध महिना",
+        "Profit Fruits": "फळांचा नफा उत्पादनानुसार",
+        "Profit Grains": "अनाजाचा नफा उत्पादनानुसार",
+        "discountsFruits": "फळांवरील सूट",
+        "ratingsFruits": "फळांचे रेटिंग",
+        "discountsGrains": "अनाजावर सूट",
+        "ratingsGrains": "अनाजाचे रेटिंग",
+        "citySales": "शहरातील विक्री उत्पादनानुसार"
+      },
+      "months": {
+        "Jan": "जानेवारी",
+        "Feb": "फेब्रुवारी",
+        "Mar": "मार्च",
+        "Apr": "एप्रिल",
+        "May": "मे"
+      },
+      "products": {
+        "apples": "सफरचंद",
+        "bananas": "केळे",
+        "oranges": "संत्रे",
+        "grapes": "द्राक्षे",
+        "rice": "तांदूळ",
+        "wheat": "गहू",
+        "oats": "जव",
+        "corn": "मका"
+      }
+    },
+    
+      "title": "किसान बाजार",
+      "description1": "भारतातील शेतकऱ्यांकडून ताजे, स्थानिक उत्पादन शोधा",
+      "searchPlaceholder": "उत्पाद शोधा...",
+      "allCategories": "सर्व श्रेण्या",
+      "allLocations": "सर्व स्थान",
+      "noProductsFound": "तुमच्या निकषांनुसार कोणतेही उत्पादने सापडली नाहीत.",
+      "knowMore": "अधिक माहिती",
+      "products1": [
+        {
+          "id": 1,
+          "name": "प्रीमियम सफरचंद",
+          "category": "फळे",
+          "city": "महाराष्ट्र",
+          "price": "₹120/kg",
+          "description": "ताजे आणि रसदार सफरचंद.",
+          "quality": "जैविक"
+        },
+        {
+          "id": 2,
+          "name": "जैविक आंबा",
+          "category": "फळे",
+          "city": "गुजरात",
+          "price": "₹150/kg",
+          "description": "पक्व आंबे, स्मूथीसाठी परफेक्ट.",
+          "quality": "जैविक"
+        },
+        {
+          "id": 3,
+          "name": "ताजे टोमॅटो",
+          "category": "भाजीपाला",
+          "city": "कर्नाटका",
+          "price": "₹40/kg",
+          "description": "पाककृतीसाठी उच्च दर्जाचे टोमॅटो.",
+          "quality": "ताजे"
+        },
+        {
+          "id": 4,
+          "name": "बासमती तांदूळ",
+          "category": "धान्य",
+          "city": "पंजाब",
+          "price": "₹85/kg",
+          "description": "लांब दाण्याचा बासमती तांदूळ, जेवणासाठी परफेक्ट.",
+          "quality": "जुना"
+        },
+        {
+          "id": 5,
+          "name": "गाजर",
+          "category": "भाजीपाला",
+          "city": "हरियाणा",
+          "price": "₹30/kg",
+          "description": "क्रंची आणि गोड गाजर.",
+          "quality": "जैविक"
+        },
+        {
+          "id": 6,
+          "name": "आलू",
+          "category": "भाजीपाला",
+          "city": "मध्य प्रदेश",
+          "price": "₹25/kg",
+          "description": "विविध आणि स्वादिष्ट आलू.",
+          "quality": "ताजे"
+        },
+        {
+          "id": 7,
+          "name": "प्याज",
+          "category": "भाजीपाला",
+          "city": "आंध्र प्रदेश",
+          "price": "₹20/kg",
+          "description": "पाककृतीसाठी ताजे प्याज.",
+          "quality": "जैविक"
+        },
+        {
+          "id": 8,
+          "name": "लसूण",
+          "category": "भाजीपाला",
+          "city": "गुजरात",
+          "price": "₹60/kg",
+          "description": "मजबूत आणि स्वादिष्ट लसूण.",
+          "quality": "ताजे"
+        },
+        {
+          "id": 9,
+          "name": "चणा",
+          "category": "डाळ",
+          "city": "राजस्थान",
+          "price": "₹100/kg",
+          "description": "उच्च प्रोटीन चणा.",
+          "quality": "जैविक"
+        },
+        {
+          "id": 10,
+          "name": "डाळ",
+          "category": "डाळ",
+          "city": "पंजाब",
+          "price": "₹90/kg",
+          "description": "पोषणयुक्त डाळ.",
+          "quality": "ताजे"
+        }
+      ]
+    
+  }
