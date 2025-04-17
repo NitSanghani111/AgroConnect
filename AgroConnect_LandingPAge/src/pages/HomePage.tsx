@@ -16,15 +16,24 @@ import {
   User,
   MapPin,
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { AnimatedText } from "@/components/ui/animated-text";
-import { AnimatedNumber } from "@/components/ui/animated-number";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel";
-import { type ProductType } from "@/types/product";
+import { Button } from "../components/ui/button";
+import { Card, CardContent } from "../components/ui/card";
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../components/ui/carousel";
+import { type ProductType } from "../types/product";
+import { useState } from "react";
+
+// Create components for AnimatedText and AnimatedNumber
+const AnimatedText = ({ text, className, delay }: { text: string, className: string, delay?: number }) => {
+  return <div className={className}>{text}</div>;
+};
+
+const AnimatedNumber = ({ value }: { value: number }) => {
+  return <span>{value}</span>;
+};
 
 export default function HomePage() {
-  const { t } = useTranslation();
+  const {t} = useTranslation(); // Simple translation function placeholder
+  
   const features = [
     {
       title: t("features.directMarket.title"),
@@ -57,6 +66,7 @@ export default function HomePage() {
       icon: Headphones,
     },
   ];
+  
   const stats = [
     { value: 10000, suffix: "+", label: t("stats.farmers") },
     { value: 5000, suffix: "+", label: t("stats.buyers") },
@@ -70,104 +80,125 @@ export default function HomePage() {
       images: [
         "https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?auto=format&fit=crop&w=800&q=80"
       ],
-      name: "Organic Apples",
-      price: 249,
-      description: "Fresh, crisp apples grown without pesticides",
-      farmerName: "John Smith",
-      farmerCity: "New York",
+      name: t('products.Organic Apples'),
+      description: t('products.Fresh, crisp apples grown without pesticides'),
+      farmerName: t('products.farmerNames.John Smith'),
+      farmerCity: t('products.cities.New York'),
       quality: 4.5,
       category: "Fruits",
       quantity: "500 kg",
       priceRange: { min: 200, max: 300 },
-      quantityRange: { min: 100, max: 500 }
+      price: 0
     },
     {
       id: 2,
       images: [
         "https://images.unsplash.com/photo-1601493700631-2b16ec4b4716?w=500&auto=format&fit=crop&q=60"
       ],
-      name: "Fresh Mangoes",
-      price: 166,
-      description: "Sweet and juicy mangoes from local orchards",
-      farmerName: "Rajesh Kumar",
-      farmerCity: "Mumbai",
+      name: t('products.Fresh Mangoes'),
+
+      description: t('products.Sweet and juicy mangoes from local orchards'),
+      farmerName: t('products.farmerNames.Rajesh Kumar'),
+      farmerCity: t('products.cities.Mumbai'),
       quality: 4.8,
       category: "Fruits",
       quantity: "300 kg",
       priceRange: { min: 150, max: 200 },
-      quantityRange: { min: 50, max: 300 }
+      price: 0
     },
     {
       id: 3,
       images: [
         "https://images.unsplash.com/photo-1574323347407-f5e1ad6d020b?auto=format&fit=crop&w=800&q=80"
       ],
-      name: "Organic Wheat",
-      price: 83,
-      description: "Premium quality wheat grains, perfect for bread and rotis",
-      farmerName: "Amit Patel",
-      farmerCity: "Delhi",
+      name: t('products.Organic Wheat'),
+      description: t('products.Premium quality wheat grains, perfect for bread and rotis'),
+      farmerName: t('products.farmerNames.Amit Patel'),
+      farmerCity: t('products.cities.Delhi'),
       quality: 5,
       category: "Grains",
       quantity: "1000 kg",
       priceRange: { min: 70, max: 100 },
-      quantityRange: { min: 500, max: 1000 }
+      price: 0
     },
     {
       id: 4,
       images: [
         "https://images.unsplash.com/photo-1591073113125-e46713c829ed?auto=format&fit=crop&w=800&q=80"
       ],
-      name: "Kesar Mango",
-      price: 250,
-      description: "Premium Gir Kesar mangoes, known for their sweet taste and aroma",
-      farmerName: "Rajesh Patel",
-      farmerCity: "Junagadh",
+      name: t('products.Kesar Mango'),
+
+      description: t('products.Premium Gir Kesar mangoes, known for their sweet taste and aroma'),
+      farmerName: t('products.farmerNames.Rajesh Patel'),
+      farmerCity: t('products.cities.Junagadh'),
       quality: 5,
       category: "Fruits",
       quantity: "500 kg",
       priceRange: { min: 200, max: 300 },
-      quantityRange: { min: 300, max: 500 }
+      price: 0
+    },
+    // Additional products for second slide
+   
+    {
+      id: 6,
+      images: [
+        "https://images.unsplash.com/photo-1587132137056-bfbf0166836e?auto=format&fit=crop&w=800&q=80"
+      ],
+      name: t('products.Red Banana'),
+
+      description: t('products.Sweet and nutritious red bananas from Kerala'),
+      farmerName: t('products.farmerNames.Thomas Joseph'),
+      farmerCity: t('products.cities.Kochi'),
+      quality: 4.9,
+      category: "Fruits",
+      quantity: "2000 kg",
+      priceRange: { min: 75, max: 90 },
+      price: 0
+    },
+    {
+      id: 7,
+      images: [
+        "https://images.unsplash.com/photo-1586201375761-83865001e31c?auto=format&fit=crop&w=800&q=80"
+      ],
+      name: t('products.Red Rice'),
+
+      description: t('products.Traditional Kerala red rice, rich in nutrients'),
+      farmerName: t('products.farmerNames.Mathew Philip'),
+      farmerCity: t('products.cities.Thrissur'),
+      quality: 4.6,
+      category: "Grains",
+      quantity: "100 kg",
+      priceRange: { min: 160, max: 200 },
+      price: 0
+    },
+    {
+      id: 8,
+      images: [
+        "https://images.unsplash.com/photo-1553279768-865429fa0078?auto=format&fit=crop&w=800&q=80"
+      ],
+      name: t('products.Alphonso mango'),
+
+      description: t('products.Premium Ratnagiri Alphonso mangoes'),
+      farmerName: t('products.farmerNames.Suresh Desai'),
+      farmerCity: t('products.cities.Ratnagiri'),
+      quality: 4.7,
+      category: "fruits",
+      quantity: "750 kg",
+      priceRange: { min: 85, max: 110 },
+      price: 0
     }
   ];
 
-  const renderStars = (quality: number) => {
-    const stars = [];
-    const fullStars = Math.floor(quality);
-    const hasHalfStar = quality % 1 !== 0;
-  
-    for (let i = 0; i < fullStars; i++) {
-      stars.push(
-        <Star
-          key={`full-${i}`}
-          className="h-4 w-4 text-yellow-400 fill-current"
-        />
-      );
-    }
-  
-    if (hasHalfStar) {
-      stars.push(
-        <div key="half" className="relative">
-          <Star className="h-4 w-4 text-yellow-400" />
-          <div className="absolute inset-0 overflow-hidden w-[50%]">
-            <Star className="h-4 w-4 text-yellow-400 fill-current" />
-          </div>
-        </div>
-      );
-    }
-  
-    const remainingStars = 5 - Math.ceil(quality);
-    for (let i = 0; i < remainingStars; i++) {
-      stars.push(
-        <Star
-          key={`empty-${i}`}
-          className="h-4 w-4 text-yellow-400"
-        />
-      );
-    }
-  
-    return stars;
-  };
+  // Group products into slides of 4
+  const productSlides = [];
+  for (let i = 0; i < featuredProducts.length; i += 4) {
+    productSlides.push(featuredProducts.slice(i, i + 4));
+  }
+
+
+
+  // State to track which product is being hovered
+  const [hoveredProductId, setHoveredProductId] = useState<number | null>(null);
   
   return (
     <div className="flex flex-col min-h-screen">
@@ -207,10 +238,6 @@ export default function HomePage() {
               <AnimatedText
                 text={t("hero.title")}
                 className="text-4xl md:text-5xl font-bold tracking-tighter"
-                style={{
-                  WebkitFlexWrap: "wrap",
-                  fontFamily: "'Roboto', sans-serif",
-                }}
               />
               <AnimatedText
                 text={t('hero1.subtitle')}
@@ -287,7 +314,7 @@ export default function HomePage() {
                   <div className="absolute bottom-0 left-0 w-full bg-green-500/50 group-hover:animate-slide-up-bg z-0" />
                   <CardContent className="p-6 text-center relative z-10">
                     <div className="rounded-full w-12 mt-4 h-12 flex items-center justify-center bg-green-100 mx-auto mb-4 transition-colors group-hover:bg-green-200">
-                      <feature.icon className="h-8 w-6  text-green-600 transition-colors group-hover:text-green-700" />
+                      <feature.icon className="h-8 w-6 text-green-600 transition-colors group-hover:text-green-700" />
                     </div>
                     <h3 className="font-semibold mb-2 transition-colors group-hover:text-green-700">{feature.title}</h3>
                     <p className="text-sm text-muted-foreground transition-colors group-hover:text-green-600/80">{feature.description}</p>
@@ -346,99 +373,107 @@ export default function HomePage() {
         </div>
       </section>
       
-       {/* Product Carousel Section */}
-<section className="py-20 bg-gradient-to-br from-green-200 via-white to-green-200">
-  <div className="container">
-    <div className="text-center max-w-3xl mx-auto mb-16">
-      <AnimatedText
-        text={t("products.featuredProducts")}
-        className="text-3xl font-bold mb-4"
-      />
-      <AnimatedText
-        text={t("products.discoverProducts")}
-        className="text-lg text-muted-foreground"
-        delay={3}
-      />
-    </div>
-    
-    <Carousel className="w-full max-w-6xl mx-auto">
-      <CarouselContent>
-        {featuredProducts.map((product) => (
-          <CarouselItem key={product.id}>
-            <Card className="border-none shadow-lg bg-white/80 backdrop-blur-sm">
-              <CardContent className="p-0">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="relative aspect-square overflow-hidden">
-                    <img
-                      src={product.images[0]}
-                      alt={product.name}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="p-6 flex flex-col justify-between">
-                    <div>
-                      <h3 className="text-5xl font-semibold text-green-800 mb-2 size-50">
-                        {t(`products.${product.name}`)} {/* Use the product name key from JSON */}
-                      </h3><br></br><br></br>
-
-                      <div className="flex items-center gap-1 mb-4">
-                        {renderStars(product.quality)}
-                      </div><br></br>
-                      <p className="text-green-600 text-3xl mb-4 size-50">
-                        {t(`products.${product.description}`)} {/* Use the product description key from JSON */}
-                      </p><br></br>
-
-                      <div className="space-y-3">
-                        <div className="flex items-center gap-2 text-lg text-green-700">
-                          <TrendingUp className="w-5 h-5" />
-                          <span className="font-medium text-2xl size-30">
-                            ₹{product.priceRange.min} - ₹{product.priceRange.max}
-                          </span>
-                        </div>
-                        <div className="flex items-center gap-2 text-lg text-green-700">
-                          <Package className="w-5 h-5" />
-                          <span className="text-xl">{product.quantity}</span>
-                        </div>
-                        <div className="flex items-center gap-2 text-lg text-green-700">
-                          <User  className="w-5 h-5" />
-                          <span className="text-xl">{t(`products.farmerNames.${product.farmerName}`)}</span> {/* Use the farmer name key from JSON */}
-                        </div>
-                        {product.farmerCity && (
-                          <div className="flex items-center gap-2 text-lg text-green-700">
-                            <MapPin className="w-5 h-5" />
-                            <span className="text-xl">{t(`products.cities.${product.farmerCity}`)}</span> {/* Use the city name key from JSON */}
-                          </div>
-                        )}
+      {/* Product Carousel Section - Updated with 4 products per slide */}
+      <section className="py-20 bg-gradient-to-br from-green-200 via-white to-green-200">
+        <div className="container">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <AnimatedText
+              text={t("products.featuredProducts")}
+              className="text-3xl font-bold mb-4"
+            />
+            <AnimatedText
+              text={t("products.discoverProducts")}
+              className="text-lg text-muted-foreground"
+              delay={3}
+            />
+          </div>
+          
+          <Carousel className="w-full max-w-6xl mx-auto">
+            <CarouselContent>
+              {productSlides.map((slideProducts, slideIndex) => (
+                <CarouselItem key={slideIndex}>
+                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    {slideProducts.map((product) => (
+                      <div 
+                        key={product.id} 
+                        className="relative group"
+                        onMouseEnter={() => setHoveredProductId(product.id)}
+                        onMouseLeave={() => setHoveredProductId(null)}
+                      >
+                        <Card className="border-none shadow-lg overflow-hidden h-120">
+                          <CardContent className="p-0 h-150">
+                            <div className="relative h-150">
+                              <img
+                                src={product.images[0]}
+                                alt={product.name}
+                                className="w-full h-60 object-cover"
+                              />
+                              
+                              {/* Product details - only visible on hover */}
+                              <div 
+                                className={`absolute inset-0 bg-black/70 flex flex-col justify-center text-white p-4 transition-opacity duration-300 ${
+                                  hoveredProductId === product.id ? "opacity-100" : "opacity-0"
+                                }`}
+                              >
+                                <h3 className="text-lg font-semibold mb-2">{product.name}</h3>
+                                <div className="flex items-center gap-1 mb-2">
+                                  
+                                </div>
+                                <p className="text-sm mb-2 line-clamp-2">{product.description}</p>
+                                
+                                <div className="space-y-2 mt-auto">
+                                  <div className="flex items-center gap-2 text-sm">
+                                    <TrendingUp className="w-4 h-4" />
+                                    <span>₹{product.priceRange.min} - ₹{product.priceRange.max}</span>
+                                  </div>
+                                  <div className="flex items-center gap-2 text-sm">
+                                    <Package className="w-4 h-4" />
+                                    <span>{product.quantity}</span>
+                                  </div>
+                                  <div className="flex items-center gap-2 text-sm">
+                                    <User className="w-4 h-4" />
+                                    <span>{product.farmerName}</span>
+                                  </div>
+                                  {product.farmerCity && (
+                                    <div className="flex items-center gap-2 text-sm">
+                                      <MapPin className="w-4 h-4" />
+                                      <span>{product.farmerCity}</span>
+                                    </div>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                            
+                            {/* Product name always visible */}
+                           
+                          </CardContent>
+                        </Card>
                       </div>
-
-                    </div>
+                    ))}
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          </CarouselItem>
-        ))}
-      </CarouselContent>
-      <div className="hidden md:block">
-        <CarouselPrevious className="-left-12 bg-green-50 hover:bg-green-100 border-green-200" />
-        <CarouselNext className="-right-12 bg-green-50 hover:bg-green-100 border-green-200" />
-      </div>
-    </Carousel>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <div className="hidden md:block">
+              <CarouselPrevious className="-left-12 bg-green-50 hover:bg-green-100 border-green-200" />
+              <CarouselNext className="-right-12 bg-green-50 hover:bg-green-100 border-green-200" />
+            </div>
+          </Carousel>
 
-    <div className="mt-12 text-center">
-      <Button
-        asChild
-        size="lg"
-        className="bg-green-600 hover:bg-green-700 group"
-      >
-        <Link to="/Product">
-          {t("products.showMore")} {/* Add a key for "Show More Products" in your JSON */}
-          <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
-        </Link>
-      </Button>
-    </div>
-  </div>
-</section>
+          <div className="mt-12 text-center">
+            <Button
+              asChild
+              size="lg"
+              className="bg-green-600 hover:bg-green-700 group"
+            >
+              <Link to="/Product">
+                {t("products.showMore")}
+                <ArrowRight className="ml-2 transition-transform group-hover:translate-x-1" />
+              </Link>
+            </Button>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

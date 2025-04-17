@@ -37,35 +37,35 @@ export default function LoginPage() {
     setError("");
 
     try {
-      console.log("ecjehjehdjihdi");
-
-      const response = await axios.post(
-        "http://localhost:5000/api/user/login",
-        { username, password },
-        {
-          headers: { "Content-Type": "application/json" },
-        }
-      );
-
-      console.log(response.data);
-
-      if (response.data.token) {
-        localStorage.setItem("token", response.data.token);
-        localStorage.setItem("role", response.data.role);
-
-        // Redirect based on role
-        console.log(response.data);
-
-        if (response.data.role && response.data.token) {
-          localStorage.setItem("authToken", response.data.token); // Store securely
-          window.open(`http://localhost:5174/${response.data.role}`, "_blank");
-        }
+      const response = await axios.post("http://localhost:5000/api/user/login", { username, password });
+    
+      console.log("Login Response:", response.data);
+    
+      if (!response.data || !response.data.token) {
+        throw new Error("Invalid login response");
       }
-    } catch (error: any) {
-      toast.error(
-        error.response?.data?.message || "Login failed. Please try again."
-      );
-    } finally {
+    
+      localStorage.setItem("authToken", response.data.token);
+      localStorage.setItem("role", response.data.role);
+    
+      // ✅ Check if user exists before accessing properties
+      if (response.data.user) {
+        localStorage.setItem("profilePhoto", response.data.user.profilePhoto || "");
+        localStorage.setItem("firstName", response.data.user.firstName || "");
+        localStorage.setItem("lastName", response.data.user.lastName || "");
+      } else {
+        console.warn("User object is missing in response");
+      }
+    
+     window.location.href = `http://localhost:5174/${response.data.role}/${encodeURIComponent(response.data.token)}`;
+
+     
+    } catch (error:any) {
+      console.error("Login error:", error.response?.data);
+      toast.error(error.response?.data?.message || "Login failed. Please try again.");
+    }
+    
+     finally {
       setIsLoading(false);
     }
   };

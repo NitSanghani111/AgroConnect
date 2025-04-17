@@ -290,7 +290,7 @@ function DocumentUpload({ form }: { form: ReturnType<typeof useForm<RegisterForm
             </div>
           </div>
           {errors.proofDocument && errors.proofDocument.message && (
-  <p className="text-sm text-red-500">{errors.proofDocument.message}</p>
+  <p className="text-sm text-red-500">{errors.proofDocument.message.toString()}</p>
 )}
         </div>
         <div className="space-y-2">
@@ -317,7 +317,7 @@ function DocumentUpload({ form }: { form: ReturnType<typeof useForm<RegisterForm
             </div>
           </div>
           {errors.profilePhoto && (
-            <p className="text-sm text-red-500">{errors.profilePhoto.message}</p>
+            <p className="text-sm text-red-500">{errors.profilePhoto.message?.toString()}</p>
           )}
         </div>
       </div>
@@ -406,7 +406,7 @@ export default function RegisterPage() {
         localStorage.setItem("userRole", response.data.userType ); // Store role
     
         // Redirect to the appropriate dashboard based on user role
-        window.location.href = `http://localhost:5174/${response.data.userType}`;
+        window.location.href = `http://localhost:5173/login`;
       } else {
         alert("Registration failed: Role information is missing.");
       }
