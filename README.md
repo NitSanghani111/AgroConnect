@@ -35,9 +35,8 @@ AgroConnect is an end-to-end web-based platform that bridges the gap between far
     AgroConnect_LandingPAge
     agroconnect-backend
     React-Admin-UI-V1-main
-
 ### Steps TO Run Project 
-`bash
+bash
 git clone https://github.com/NitSanghani111/AgroConnect.git
     cd ./  AgroConnect_LandingPAge
        simply Install npm i and run  using Commnd npm run dev
@@ -73,7 +72,7 @@ Create a file named `LICENSE` and paste this:
 ```text
 MIT License
 
-Copyright (c) 2025 [Your Name]
+Copyright (c) 2025 Nit Sanghani 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the “Software”), to deal
