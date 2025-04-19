@@ -18,13 +18,13 @@ export const getMenu = () => {
     {
       catalog: 'main',
       listItems: [
-        {
-          isLink: true,
-          url: '/home',
-          icon: ClipboardIcon,
-          label: t('menu.addProducts'),
-          role: 'farmer', // Only for farmers
-        },
+        // {
+        //   isLink: true,
+        //   url: '/manageProduct',
+        //   icon: ClipboardIcon,
+        //   label: t('menu.addProducts'),
+        //   role: 'farmer', // Only for farmers
+        // },
         {
           isLink: true,
           url: '/view-products',

@@ -1,234 +1,183 @@
-import { useState } from "react";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select";
-import { Package2, Search, Tag } from "lucide-react";
-import { motion } from "framer-motion";
-import { Card, CardContent } from "../../components/ui/card";
-import { Input } from "../../components/ui/input";
-import ProductDetailsModal from "../../components/ProductDetailsModal";
-import { useTranslation } from "../../hooks/useTranslation";
-import { LanguageSelector } from "../../components/LanguageSelector";
+"use client"
 
-const productsData = [
-  { 
-    id: 1, 
-    name: 'Premium Apples', 
-    category: 'Fruits', 
-    city: 'Maharashtra', 
-    price: '₹120/kg', 
-    images: [
-      'https://images.unsplash.com/photo-1619546813926-a78fa6372cd2?q=80&w=1000&auto=format&fit=crop',
-      'https://plus.unsplash.com/premium_photo-1661322640130-f6a1e2c36653?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8YXBwbGV8ZW58MHx8MHx8fDA%3D',
-      'https://images.unsplash.com/photo-1576179635662-9d1983e97e1e?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGFwcGxlfGVufDB8fDB8fHww'
-    ],
-    buyerName: 'Krishna Farms', 
-    quantity: '200 kg', 
-    description: 'Fresh and juicy apples.', 
-    quality: 'Organic' 
-  },
-  { 
-    id: 2, 
-    name: 'Organic Mangoes', 
-    category: 'Fruits', 
-    city: 'Gujarat', 
-    price: '₹150/kg', 
-    images: [
-      'https://images.unsplash.com/photo-1553279768-865429fa0078?q=80&w=1000&auto=format&fit=crop',
-      'https://media.istockphoto.com/id/1398814319/photo/indian-mangoes-in-basket-blue-dark-background-close-up-view.webp?a=1&b=1&s=612x612&w=0&k=20&c=tbT1cRMy7dD6wU167vj39UuEA8FD78s8NgMZLbCY9ZU=',
-      'https://media.istockphoto.com/id/1318973540/photo/indian-alphonso-mango-fruits-in-grass-closeup.webp?a=1&b=1&s=612x612&w=0&k=20&c=wQWrNbWQgsJbWUSx3a7thHRVLld3DxrVWrTAcyf_dU0='
-    ],
-    buyerName: 'Sunshine Orchards', 
-    quantity: '150 kg', 
-    description: 'Ripe mangoes, perfect for smoothies.', 
-    quality: 'Organic' 
-  },
-  { 
-    id: 3, 
-    name: 'Fresh Tomatoes', 
-    category: 'Vegetables', 
-    city: 'Karnataka', 
-    price: '₹40/kg', 
-    images: [
-      'https://images.unsplash.com/photo-1524593166156-312f362cada0?q=80&w=1000&auto=format&fit=crop',
-      'https://plus.unsplash.com/premium_photo-1726138646616-ec9fb0277048?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fFRvbWF0b2VzfGVufDB8fDB8fHww',
-      'https://plus.unsplash.com/premium_photo-1726138646616-ec9fb0277048?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fFRvbWF0b2VzfGVufDB8fDB8fHww'
-    ],
-    buyerName: 'Green Valley', 
-    quantity: '100 kg', 
-    description: 'High-quality tomatoes for cooking.', 
-    quality: 'Fresh' 
-  },
-  { 
-    id: 4, 
-    name: 'Basmati Rice', 
-    category: 'Grains', 
-    city: 'Punjab', 
-    price: '₹85/kg', 
-    images: [
-      'https://images.unsplash.com/photo-1586201375761-83865001e31c?q=80&w=1000&auto=format&fit=crop',
-      'https://plus.unsplash.com/premium_photo-1723925093264-40b6b957c44d?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8YmFzbWF0aSUyMHJpY2V8ZW58MHx8MHx8fDA%3D',
-      'https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MjB8fGJhc21hdGklMjByaWNlfGVufDB8fDB8fHww'
-    ],
-    buyerName: 'Golden Fields', 
-    quantity: '500 kg', 
-    description: 'Long-grain basmati rice, perfect for meals.', 
-    quality: 'Aged' 
-  },
-  { 
-    id: 5, 
-    name: 'Carrots', 
-    category: 'Vegetables', 
-    city: 'Haryana', 
-    price: '₹30/kg', 
-    images: [
-      'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2Fycm90fGVufDB8fDB8fHww',
-      'https://images.unsplash.com/photo-1598170845058-32b9d6a5da37?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Y2Fycm90c3xlbnwwfHwwfHx8MA%3D%3D',
-      'https://media.istockphoto.com/id/917581076/photo/fresh-carrot-with-slice-on-wooden-background.webp?a=1&b=1&s=612x612&w=0&k=20&c=QWE-oEX9KnEVIQl53bFNRBELK83DLsAianJLu04m_R4='
-    ],
-    buyerName: 'Fresh Farms', 
-    quantity: '80 kg', 
-    description: 'Crunchy and sweet carrots.', 
-    quality: 'Organic' 
-  },
-  { 
-    id: 6, 
-    name: 'Potatoes', 
-    category: 'Vegetables', 
-    city: 'Madhya Pradesh', 
-    price: '₹25/kg', 
-    images: [
-      'https://images.unsplash.com/photo-1518977676601-b53f82aba655?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG90YXRvfGVufDB8fDB8fHww',
-      'https://plus.unsplash.com/premium_photo-1677528816982-673398569f03?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cG90YXRvZXN8ZW58MHx8MHx8fDA%3D',
-      'https://plus.unsplash.com/premium_photo-1667115593045-3a5aec9f4f4f?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHBvdGF0b2VzfGVufDB8fDB8fHww'
-    ],
-    buyerName: 'Farm Fresh', 
-    quantity: '300 kg', 
-    description: 'Versatile and delicious potatoes.', 
-    quality: 'Fresh' 
-  },
-  { 
-    id: 7, 
-    name: 'Onions', 
-    category: 'Vegetables', 
-    city: 'Andhra Pradesh', 
-    price: '₹20/kg', 
-    images: [
-      'https://images.unsplash.com/photo-1467019972079-a273e1bc9173?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fG9uaW9uc3xlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1620574387735-3624d75b2dbc?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8b25pb25zfGVufDB8fDB8fHww',
-      'https://images.unsplash.com/photo-1605197378298-02bf0af1c896?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fG9uaW9uc3xlbnwwfHwwfHx8MA%3D%3D'
-    ],
-    buyerName: 'Onion Growers', 
-    quantity: '150 kg', 
-    description: 'Fresh onions for cooking.', 
-    quality: 'Organic' 
-  },
-  { 
-    id: 8, 
-    name: 'Garlic', 
-    category: 'Vegetables', 
-    city: 'Gujarat', 
-    price: '₹60/kg', 
-    images: [
-      'https://plus.unsplash.com/premium_photo-1666877049261-ea88f75e7be2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fGdhcmxpY3xlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1605197378298-02bf0af1c896?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGdhcmxpY3xlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1559454473-27bc85c67728?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGdhcmxpY3xlbnwwfHwwfHx8MA%3D%3D'
-    ],
-    buyerName: 'Garlic Farms', 
-    quantity: '50 kg', 
-    description: 'Strong and flavorful garlic.', 
-    quality: 'Fresh' 
-  },
-  { 
-    id: 9, 
-    name: 'Chickpeas', 
-    category: 'Legumes', 
-    city: 'Rajasthan', 
-    price: '₹100/kg', 
-    images: [
-      'https://plus.unsplash.com/premium_photo-1675237625827-38268aafc571?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8Y2hpY2twZWFzfGVufDB8fDB8fHww',
-      'https://images.unsplash.com/photo-1515543904379-3d757afe72e4?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8Y2hpY2twZWFzfGVufDB8fDB8fHww',
-      'https://media.istockphoto.com/id/1327960998/photo/boiled-chickpeas-in-bowl.webp?a=1&b=1&s=612x612&w=0&k=20&c=JyoV-9kqtOMeC-GBlcnssThBsU3ns409UsOdshUw0m8='
-    ],
-    buyerName: 'Legume Growers', 
-    quantity: '200 kg', 
-    description: 'High-protein chickpeas.', 
-    quality: 'Organic' 
-  },
-  { 
-    id: 10, 
-    name: 'Lentils', 
-    category: 'Legumes', 
-    city: 'Punjab', 
-    price: '₹90/kg', 
-    images: [
-      'https://plus.unsplash.com/premium_photo-1671130295987-13d3b3b4e9dc?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8bGVudGlsc3xlbnwwfHwwfHx8MA%3D%3D',
-      'https://plus.unsplash.com/premium_photo-1671130295825-402e525e7834?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bGVudGlsc3xlbnwwfHwwfHx8MA%3D%3D',
-      'https://images.unsplash.com/photo-1615485500551-a968b29b07fa?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fGxlbnRpbHN8ZW58MHx8MHx8fDA%3D'
-    ],
-    buyerName: 'Lentil Farms', 
-    quantity: '150 kg', 
-    description: 'Nutritious lentils for cooking.', 
-    quality: 'Fresh' 
+import type React from "react"
+import { useEffect, useState } from "react"
+import axios from "axios"
+import { Input } from "../../components/ui/input"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "../../components/ui/select"
+import { motion } from "framer-motion"
+import { Card, CardContent } from "../../components/ui/card"
+import { Search, Tag, Package2, User, Phone, Mail, MapPin } from "lucide-react"
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import { useRecoilValue } from "recoil"
+import tokenAtom from "../../hooks/tokenAtom"
+
+// Add custom styles for the slider
+const sliderStyles = `
+  .custom-slider .slick-dots {
+    bottom: 10px;
   }
-];
+  
+  .custom-slider .slick-dots li button:before {
+    color: white;
+    opacity: 0.7;
+    font-size: 8px;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+  }
+  
+  .custom-slider .slick-dots li.slick-active button:before {
+    color: white;
+    opacity: 1;
+  }
+  
+  .custom-slider .slick-prev,
+  .custom-slider .slick-next {
+    z-index: 1;
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .custom-slider .slick-prev {
+    left: 10px;
+  }
+  
+  .custom-slider .slick-next {
+    right: 10px;
+  }
+  
+  .custom-slider .slick-prev:before,
+  .custom-slider .slick-next:before {
+    color: #333;
+    font-size: 16px;
+  }
+`
 
-const BuyerProducts = () => {
-  const { t } = useTranslation();
-  const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [selectedLocation, setSelectedLocation] = useState("all");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedProduct, setSelectedProduct] = useState<any>(null);
-  const productsPerPage = 8;
+interface FarmerId {
+  _id: string
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  state: string
+  country: string
+}
 
-  const categories = [...new Set(productsData.map(product => product.category))];
-  const locations = [...new Set(productsData.map(product => product.city))];
+interface Product {
+  _id: string
+  name: string
+  category: string
+  unit: string
+  priceRange: {
+    min: number
+    max: number
+  }
+  extraDetails: string
+  images: string[]
+  minQuantity: number
+  farmerId: FarmerId
+  // Derived fields for convenience
+  farmerName?: string
+  contact?: string
+  location?: string
+}
 
-  const filteredProducts = productsData.filter(product => {
-    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory;
-    const matchesLocation = selectedLocation === "all" || product.city === selectedLocation;
-    return matchesSearch && matchesCategory && matchesLocation;
-  });
+const BuyerProducts: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([])
+  const [searchTerm, setSearchTerm] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState("all")
+  const [selectedLocation, setSelectedLocation] = useState("all")
+  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null)
+  const [showModal, setShowModal] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
 
-  // Pagination logic
-  const indexOfLastProduct = currentPage * productsPerPage;
-  const indexOfFirstProduct = indexOfLastProduct - productsPerPage;
-  const currentProducts = filteredProducts.slice(indexOfFirstProduct, indexOfLastProduct);
-  const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+  const token = useRecoilValue(tokenAtom)
 
-  const handleKnowMoreClick = (product: any) => {
-    setSelectedProduct(product);
-    setIsModalOpen(true);
-  };
+  const fetchProducts = async () => {
+    setIsLoading(true)
+    setError(null)
+    try {
+      const response = await axios.get("http://localhost:5000/api/product/products", {
+        headers: {
+          Authorization: `Bearer ${token}`, // Include the token in the Authorization header
+        },
+      });
+      console.log("API Response:", response.data)
 
-  const handleCloseModal = () => {
-    setIsModalOpen(false);
-    setSelectedProduct(null);
-  };
+      const processedProducts = response.data.map((product: any) => {
+        // Log each product's farmerId to debug
+        console.log(`Product ${product._id} farmerId:`, product.farmerId)
+
+        // Process the product data
+        const farmerName = product.farmer
+          ? `${product.farmer.firstName || ""} ${product.farmer.lastName || ""}`.trim() || "Unnamed Farmer"
+          : "Unnamed Farmer"
+
+        const location = product.farmer.state || product.farmer.country || "Unknown Location"
+
+        return {
+          ...product,
+          farmerName,
+          contact: product.farmer.phone || "No contact",
+          location,
+        }
+      })
+
+      setProducts(processedProducts)
+    } catch (error) {
+      console.error("Error fetching products:", error)
+      setError("Failed to load products. Please try again later.")
+    } finally {
+      setIsLoading(false)
+    }
+  }
+
+  useEffect(() => {
+    fetchProducts()
+  }, [])
+
+  const categories = [...new Set(products.map((product) => product.category))]
+  const locations = [...new Set(products.map((product) => product.location || "Unknown"))]
+
+  const filteredProducts = products.filter((product) => {
+    const matchesSearch = product.name.toLowerCase().includes(searchTerm.toLowerCase())
+    const matchesCategory = selectedCategory === "all" || product.category === selectedCategory
+    const matchesLocation = selectedLocation === "all" || product.location === selectedLocation
+    return matchesSearch && matchesCategory && matchesLocation
+  })
+
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    className: "custom-slider",
+  }
 
   return (
-    <div className="min-h-screen bg-[#F7F9FC]">
-      <motion.div 
+    <div className="min-h-screen bg-[#F7F9FC] pb-12">
+      {/* Add the custom slider styles */}
+      <style>{sliderStyles}</style>
+
+      <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-gradient-to-r from-green-700 to-indigo-800 text-white py-16"
+        className="bg-gradient-to-r from-green-700 to-emerald-600 text-white py-16"
       >
-        <div className="container mx-auto px-4 mt-6 flex justify-between items-center">
-          <div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">{t('title')}</h1>
-            <p className="text-lg opacity-90 max-w-2xl">
-              {t('description')}
-            </p>
-          </div>
-          <div>
-            
-          </div>
+        <div className="container mx-auto px-4">
+          <h1 className="text-4xl font-bold mb-2">Available Products</h1>
+          <p className="text-lg opacity-90">Browse and filter fresh produce from verified sellers.</p>
         </div>
       </motion.div>
 
       <div className="container mx-auto px-4 -mt-8">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           className="bg-white rounded-xl shadow-lg p-6 mb-8"
@@ -237,52 +186,46 @@ const BuyerProducts = () => {
             <div className="relative">
               <Search className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
               <Input
-                placeholder={t('searchPlaceholder')}
+                placeholder="Search by name..."
                 className="pl-10"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
-            
-            <Select 
-              value={selectedCategory} 
-              onValueChange={setSelectedCategory}
-            >
+
+            <Select value={selectedCategory} onValueChange={setSelectedCategory}>
               <SelectTrigger>
-                <SelectValue defaultValue={selectedCategory}>
+                <SelectValue>
                   <div className="flex items-center gap-2">
                     <Tag className="h-4 w-4" />
-                    {selectedCategory === "all" ? t('allCategories') : t(`categories.${selectedCategory}`)}
+                    {selectedCategory === "all" ? "All Categories" : selectedCategory}
                   </div>
                 </SelectValue>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">{t('allCategories')}</SelectItem>
-                {categories.map(category => (
-                  <SelectItem key={category} value={category}>
-                    {t(`categories.${category}`)}
+                <SelectItem value="all">All Categories</SelectItem>
+                {categories.map((cat) => (
+                  <SelectItem key={cat} value={cat}>
+                    {cat}
                   </SelectItem>
                 ))}
               </SelectContent>
             </Select>
 
-            <Select 
-              value={selectedLocation} 
-              onValueChange={setSelectedLocation}
-            >
+            <Select value={selectedLocation} onValueChange={setSelectedLocation}>
               <SelectTrigger>
-                <SelectValue defaultValue={selectedLocation}>
+                <SelectValue>
                   <div className="flex items-center gap-2">
                     <Package2 className="h-4 w-4" />
-                    {selectedLocation === "all" ? t('allLocations') : t(`locations.${selectedLocation}`)}
+                    {selectedLocation === "all" ? "All Locations" : selectedLocation}
                   </div>
                 </SelectValue>
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="all">{t('allLocations')}</SelectItem>
-                {locations.map(location => (
-                  <SelectItem key={location} value={location}>
-                    {t(`locations.${location}`)}
+                <SelectItem value="all">All Locations</SelectItem>
+                {locations.map((loc) => (
+                  <SelectItem key={loc} value={loc}>
+                    {loc}
                   </SelectItem>
                 ))}
               </SelectContent>
@@ -290,119 +233,196 @@ const BuyerProducts = () => {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-12">
-          {currentProducts.map(product => (
-            <motion.div
-              key={product.id}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              whileHover={{ y: -4 }}
-              transition={{ duration: 0.2 }}
-              className="flex flex-col"
+        {isLoading ? (
+          <div className="flex justify-center items-center py-20">
+            <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-green-500"></div>
+          </div>
+        ) : error ? (
+          <div className="text-center py-20">
+            <p className="text-red-500">{error}</p>
+            <button
+              onClick={fetchProducts}
+              className="mt-4 px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700"
             >
-              <Card className="flex-1 overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300">
-                <div className="relative pt-[75%]">
-                  <img 
-                    src={product.images[0]} 
-                    alt={t(`products.${product.name}`)}
-                    className="absolute top-0 left-0 w-full h-full object-cover"
-                  />
-                </div>
-                <CardContent className="p-5">
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
-                    {t(`products.${product.name}`)}
-                  </h3>
-                  <div className="space-y-1">
-                    <p className="text-sm text-gray-600">
-                      <span className="font-medium">{t('category')}:</span> {t(`categories.${product.category}`)}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      <span className="font-medium">{t('location')}:</span> {t(`locations.${product.city}`)}
-                    </p>
-                    <p className="text-lg font-bold text-purple-700 my-2">{product.price}</p>
-                    <p className="text-sm text-gray-600">
-                      <span className="font-medium">{t('seller')}:</span> {t(`buyers.${product.buyerName}`)}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      <span className="font-medium">{t('available')}:</span> {product.quantity}
-                    </p>
-                    <p className="text-sm text-gray-600">
-                      <span className="font-medium">{t('quality')}:</span> {t(`qualities.${product.quality}`)}
-                    </p>
-                    <p className="text-sm text-gray-600 mt-2">{t(`descriptions.${product.name}`)}</p>
-                    <button
-                      onClick={() => handleKnowMoreClick(product)}
-                      className="mt-4 w-full bg-purple-700 text-white py-2 rounded-lg hover:bg-purple-800 transition-colors duration-200"
-                    >
-                      {t('knowMore')}
-                    </button>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-        {filteredProducts.length === 0 && (
-          <motion.div 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            className="text-center py-12"
-          >
-            <p className="text-gray-500 text-lg">{t('noProductsFound')}</p>
-          </motion.div>
+              Try Again
+            </button>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+            {filteredProducts.length === 0 ? (
+              <div className="col-span-full text-center py-20">
+                <p className="text-gray-500">No products found matching your criteria.</p>
+              </div>
+            ) : (
+              filteredProducts.map((product) => (
+                <motion.div
+                  key={product._id}
+                  onClick={() => {
+                    setSelectedProduct(product)
+                    setShowModal(true)
+                  }}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  whileHover={{ y: -4, scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
+                  className="flex flex-col cursor-pointer"
+                >
+                  <Card className="flex-1 overflow-hidden bg-white hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+                    <div className="relative pt-[75%]">
+                      <img
+                        src={`http://localhost:5000${product.images?.[0]}`}
+                        alt={product.name}
+                        className="absolute top-0 left-0 w-full h-full object-cover"
+                      />
+                      {product.location && (
+                        <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm px-2 py-1 rounded-full text-xs font-medium text-gray-700 shadow-sm">
+                          {product.location}
+                        </div>
+                      )}
+                    </div>
+                    <CardContent className="p-5">
+                      <div className="flex justify-between items-start">
+                        <div>
+                          <h3 className="text-lg font-semibold line-clamp-1">{product.name}</h3>
+                          <p className="text-sm text-gray-500 mb-2">{product.category}</p>
+                        </div>
+                      </div>
+                      <div className="flex justify-between items-center mt-2">
+                        <p className="text-green-700 font-bold">
+                          ₹{product.priceRange.min} - ₹{product.priceRange.max} / {product.unit}
+                        </p>
+                      </div>
+                      <div className="mt-3 pt-3 border-t border-gray-100 flex items-center justify-between">
+                        <p className="text-xs font-medium text-gray-500">
+                          Min: {product.minQuantity}
+                          {product.unit}
+                        </p>
+                        <span className="text-xs bg-green-50 text-green-700 px-2 py-1 rounded-full">
+                          {product.farmerName}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))
+            )}
+          </div>
         )}
 
-{/* Pagination Controls */}
-{filteredProducts.length > 0 && (
-  <div className="flex items-center justify-between py-4">
-    <button
-      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
-      disabled={currentPage === 1}
-      className="bg-gray-200 text-gray-700 px-4 py-2 rounded disabled:opacity-50"
-    >
-      {t('previous')}
-    </button>
-    <span className="text-sm text-purple-700 font-bold">
-      {currentPage}
-    </span>
-    <span className="text-sm text-gray-600 mx-1">/</span> {/* Reduced margin */}
-    <span className="text-sm text-purple-700 font-bold">
-      {totalPages}
-    </span>
-    <button
-      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
-      disabled={currentPage === totalPages}
-      className="bg-gray-200 text-gray-700 px-4 py-2 rounded disabled:opacity-50"
-    >
-      {t('next')}
-    </button>
-  </div>
-)}
-        {selectedProduct && (
-          <ProductDetailsModal
-            product={{
-              id: selectedProduct.id,
-              images: selectedProduct.images,
-              name: t(`products.${selectedProduct.name}`),
-              priceRange: {
-                min: parseFloat(selectedProduct.price.replace(/[^0-9.-]+/g, "")),
-                max: parseFloat(selectedProduct.price.replace(/[^0-9.-]+/g, "")) + 50,
-              },
-              description: t(`descriptions.${selectedProduct.name}`),
-              farmerName: t(`buyers.${selectedProduct.buyerName}`),
-              farmerCity: t(`locations.${selectedProduct.city}`),
-              quality: selectedProduct.quality === "Organic" ? 5 : 4,
-              category: t(`categories.${selectedProduct.category}`),
-              quantity: selectedProduct.quantity,
-            }}
-            isOpen={isModalOpen}
-            onClose={handleCloseModal}
-          />
+        {showModal && selectedProduct && (
+          <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50 p-4">
+            <motion.div
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              className="bg-white rounded-xl p-6 max-w-4xl w-full shadow-2xl relative grid grid-cols-1 md:grid-cols-2 gap-8 overflow-hidden max-h-[90vh] overflow-y-auto"
+            >
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 bg-white/80 backdrop-blur-sm rounded-full w-8 h-8 flex items-center justify-center text-gray-600 hover:text-red-500 z-10 shadow-md"
+              >
+                ✖
+              </button>
+              <div className="overflow-hidden rounded-lg shadow-inner">
+                <Slider {...sliderSettings}>
+                  {selectedProduct.images.map((img, index) => (
+                    <div key={index} className="outline-none">
+                      <img
+                        src={`http://localhost:5000${img}`}
+                        alt={`${selectedProduct.name} - Image ${index + 1}`}
+                        className="w-full h-72 object-cover"
+                      />
+                    </div>
+                  ))}
+                </Slider>
+              </div>
+              <div className="flex flex-col">
+                <div className="mb-4">
+                  <div className="flex justify-between items-start">
+                    <h2 className="text-2xl font-bold">{selectedProduct.name}</h2>
+                    {selectedProduct.location && (
+                      <span className="bg-green-50 text-green-700 px-3 py-1 rounded-full text-sm">
+                        {selectedProduct.location}
+                      </span>
+                    )}
+                  </div>
+                  <p className="text-gray-500">{selectedProduct.category}</p>
+                </div>
+
+                <div className="bg-gray-50 rounded-lg p-4 mb-4">
+                  <div className="flex justify-between mb-2">
+                    <span className="text-gray-600">Price Range:</span>
+                    <span className="font-semibold text-green-700">
+                      ₹{selectedProduct.priceRange.min} - ₹{selectedProduct.priceRange.max} / {selectedProduct.unit}
+                    </span>
+                  </div>
+                  <div className="flex justify-between">
+                    <span className="text-gray-600">Minimum Order:</span>
+                    <span className="font-semibold">
+                      {selectedProduct.minQuantity}
+                      {selectedProduct.unit}
+                    </span>
+                  </div>
+                </div>
+
+                <div className="border-t border-gray-100 pt-4 mb-4">
+                  <h3 className="font-semibold mb-3 flex items-center">
+                    <User className="w-4 h-4 mr-2" />
+                    Seller Information
+                  </h3>
+                  <div className="grid gap-3">
+                    <div className="flex items-center gap-2 bg-gray-50 p-2 rounded-md">
+                      <User className="w-4 h-4 text-green-600" />
+                      <span className="text-gray-500">Farmer:</span>
+                      <span className="font-medium ml-auto">{selectedProduct.farmerName}</span>
+                    </div>
+
+                    <div className="flex items-center gap-2 bg-gray-50 p-2 rounded-md">
+                      <Phone className="w-4 h-4 text-green-600" />
+                      <span className="text-gray-500">Contact:</span>
+                      <span className="font-medium ml-auto">{selectedProduct.contact}</span>
+                    </div>
+
+                    {selectedProduct.farmerId?.email && (
+                      <div className="flex items-center gap-2 bg-gray-50 p-2 rounded-md">
+                        <Mail className="w-4 h-4 text-green-600" />
+                        <span className="text-gray-500">Email:</span>
+                        <span className="font-medium ml-auto">{selectedProduct.farmerId.email}</span>
+                      </div>
+                    )}
+
+                    <div className="flex items-center gap-2 bg-gray-50 p-2 rounded-md">
+                      <MapPin className="w-4 h-4 text-green-600" />
+                      <span className="text-gray-500">Location:</span>
+                      <span className="font-medium ml-auto">
+                        {selectedProduct.farmerId?.state || "N/A"}
+                        {selectedProduct.farmerId?.country ? `, ${selectedProduct.farmerId.country}` : ""}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                {selectedProduct.extraDetails && (
+                  <div className="mb-6">
+                    <h3 className="font-semibold mb-1">Additional Details</h3>
+                    <p className="text-sm text-gray-600 bg-gray-50 p-3 rounded-md">{selectedProduct.extraDetails}</p>
+                  </div>
+                )}
+
+                <div className="mt-auto flex gap-3">
+                  <button className="flex-1 px-4 py-3 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors font-medium shadow-sm">
+                    Negotiate Price
+                  </button>
+                  <button className="flex-1 px-4 py-3 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors font-medium shadow-sm">
+                    Contact Seller
+                  </button>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export  default BuyerProducts;
+export default BuyerProducts

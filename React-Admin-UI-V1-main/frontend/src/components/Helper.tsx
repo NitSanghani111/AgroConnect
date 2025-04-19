@@ -1,24 +1,35 @@
-import React, { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+// pages/Helper.tsx
+import React, { useEffect } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { useSetRecoilState } from "recoil";
+import tokenAtom from "../hooks/tokenAtom";
+import roleAtom from "../hooks/roleAtom";
 
 const Helper = () => {
-  const [role, setRole] = useState("");
+  const { role, token } = useParams();
   const navigate = useNavigate();
+  const setToken = useSetRecoilState(tokenAtom);
+  const setRole = useSetRecoilState(roleAtom);
 
   useEffect(() => {
-    const pathParts = window.location.pathname.split("/");
-    localStorage.setItem("role", pathParts[1]); // Store role in localStorage
-    setRole(pathParts[1]); // Extract "farmer", "admin", etc.
-    redirect()
-  }, []);
+    if (role && token) {
+      const decodedToken = decodeURIComponent(token);
+      localStorage.clear();
 
-  const redirect = () => {
-    setTimeout(() => {
-      navigate(`/home`);
-    }, 2000);
+      localStorage.setItem('role', role);
+      localStorage.setItem('token', decodedToken);
   
-  }
-
+      setRole(role);
+      setToken(decodedToken);
+  
+      console.log("✅ Role set:", role);
+  
+      setTimeout(() => {
+        navigate('/home');
+      }, 800);
+    }
+  }, [role, token]);
+  
   return (
     <div className="flex items-center justify-center h-screen bg-gray-100">
       <div className="text-center">

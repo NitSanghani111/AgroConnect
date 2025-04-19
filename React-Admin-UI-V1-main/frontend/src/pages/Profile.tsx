@@ -1,242 +1,118 @@
-import React, { useState } from 'react';
-import { HiOutlinePencil, HiOutlineSave } from 'react-icons/hi';
-import { LanguageSelector } from "../components/LanguageSelector";
-import { useToast } from "../hooks/use-toast";
-import { useTranslation } from '../hooks/useTranslation';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
+import { Loader2, UserCircle, FileText, Mail, Phone, Globe2, ShieldCheck } from "lucide-react";
+import { useRecoilValue } from "recoil";
+import tokenAtom from "../hooks/tokenAtom";
 
-const Profile = () => {
-  const { t } = useTranslation();
-  const { toast } = useToast();
-  const [isEditing, setIsEditing] = useState(false);
+interface User {
+  profilePhoto?: string;
+  proofDocument?: string;
+  firstName: string;
+  lastName: string;
+  userType: string;
+  email: string;
+  phone: string;
+  country: string;
+  state: string;
+  documentNo: string;
+}
 
-  const [farmerData, setFarmerData] = useState({
-    fullName: t('profile1.data.fullName'),
-    email: t('profile1.data.email'),
-    phone: t('profile1.data.phone'),
-    location: t('profile1.data.location'),
-    farmName: t('profile1.data.farmName'),
-    experience: t('profile1.data.experience'),
-    productsGrown: [
-      t('profile1.data.productsGrown.0'),
-      t('profile1.data.productsGrown.1'),
-      t('profile1.data.productsGrown.2'),
-      t('profile1.data.productsGrown.3'),
-      t('profile1.data.productsGrown.4')
-    ],
-    socialMedia: {
-      facebook: t('profile1.data.socialMedia.facebook'),
-      instagram: t('profile1.data.socialMedia.instagram'),
-      twitter: t('profile1.data.socialMedia.twitter'),
-    },
-    rating: 4.5,
-  });
+const Profile: React.FC = () => {
+  const [user, setUser] = useState<User | null>(null);
+  const [loading, setLoading] = useState<boolean>(true);
+  const token = useRecoilValue(tokenAtom);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    if (name.includes('.')) {
-      const [parent, child] = name.split('.');
-      setFarmerData(prevState => ({
-        ...prevState,
-        [parent]: {
-          ...prevState[parent as keyof typeof prevState] as Record<string, any>,
-          [child]: value
-        }
-      }));
-    } else if (name === 'productsGrown') {
-      const productsArray = value.split(',').map(product => product.trim());
-      setFarmerData(prevState => ({
-        ...prevState,
-        [name]: productsArray
-      }));
-    } else {
-      setFarmerData(prevState => ({
-        ...prevState,
-        [name]: value
-      }));
+useEffect(() => {
+  const fetchUserProfile = async () => {
+    console.log("Current token in use:", token); // 👀 DEBUG
+
+    if (!token || token === "login") {
+      console.error("❌ Invalid token found:", token);
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await axios.get("http://localhost:5000/api/user/profile", {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      console.log("✅ Fetched user profile:", response.data.user);
+      setUser(response.data.user);
+    } catch (error) {
+      console.error("🚫 Error fetching profile:", error);
+    } finally {
+      setLoading(false);
     }
   };
 
-  const handleSave = () => {
-    toast({
-      title: t('profile1.profileSaved'),
-      description: t('profile1.profileUpdated'),
-    });
-    setIsEditing(false);
-  };
+  fetchUserProfile();
+}, [token]);
+
+  const profilePicUrl = user?.profilePhoto || "/default-avatar.png";
+  const proofDocumentUrl = user?.proofDocument || "/default-proof.png";
+
+  if (loading) {
+    return (
+      <div className="flex justify-center items-center h-screen bg-gray-50">
+        <Loader2 className="animate-spin text-blue-500" size={50} />
+      </div>
+    );
+  }
 
   return (
-    <div className="min-h-screen pt-24 px-4 pb-8 bg-gray-50">
-      <div className="max-w-screen-xl mx-auto">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-2xl font-bold">{t('profile.title')}</h1>
-          
-        </div>
-        <div className="bg-white rounded-lg shadow overflow-hidden p-6">
-          <div className="flex flex-col md:flex-row items-start md:items-center gap-5 mb-6">
-            <div className="avatar">
-              <div className="w-36 h-40 rounded-full overflow-hidden">
-                <img
-                  src="https://images.pexels.com/photos/12903019/pexels-photo-12903019.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Farmer Profile"
-                  className="w-full h-full object-cover"
-                />
-              </div>
-            </div>
-            <div className="flex flex-col flex-grow space-y-2">
-              <h2 className="text-xl font-semibold">{farmerData.fullName}</h2>
-              {isEditing ? (
-                <>
-                  <input
-                    type="email"
-                    name="email"
-                    value={farmerData.email}
-                    onChange={handleInputChange}
-                    className="text-sm text-gray-600 border rounded p-1"
-                  />
-                  <input
-                    type="tel"
-                    name="phone"
-                    value={farmerData.phone}
-                    onChange={handleInputChange}
-                    className="text-sm text-gray-600 border rounded p-1"
-                  />
-                  <input
-                    type="text"
-                    name="location"
-                    value={farmerData.location}
-                    onChange={handleInputChange}
-                    className="text-sm text-gray-600 border rounded p-1"
-                  />
-                </>
-              ) : (
-                <>
-                  <span className="text-sm text-gray-600">{farmerData.email}</span>
-                  <span className="text-sm text-gray-600">{farmerData.phone}</span>
-                  <span className="text-sm text-gray-600">{farmerData.location}</span>
-                </>
-              )}
-              <span className="text-sm text-yellow-500">
-                {farmerData.rating} ⭐
-              </ span>
+    <div className="max-w-4xl mx-auto mt-10 p-8 bg-white shadow-xl rounded-3xl border border-gray-200">
+      {user ? (
+        <>
+          <div className="flex items-center gap-6 mb-6">
+            <img
+              src={profilePicUrl}
+              alt="Profile"
+              className="w-28 h-28 rounded-full border-4 border-blue-100 object-cover hover:scale-105 transition-transform duration-300"
+            />
+            <div>
+              <h1 className="text-3xl font-bold text-gray-800 flex items-center gap-2">
+                <UserCircle className="text-blue-500" size={28} />
+                {user.firstName} {user.lastName}
+              </h1>
+              <span className="text-sm mt-1 inline-block bg-blue-100 text-blue-600 font-medium px-3 py-1 rounded-full">
+                {user.userType === "farmer" ? "🌾 Farmer" : "🛒 Buyer"}
+              </span>
             </div>
           </div>
 
-          <div className="mb-6">
-            <h3 className="text-lg font-semibold mb-2">{t('profile1.additionalInfo')}</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div>
-                <strong>{t('profile1.labels.farmName')}:</strong>{' '}
-                {isEditing ? (
-                  <input
-                    type="text"
-                    name="farmName"
-                    value={farmerData.farmName}
-                    onChange={handleInputChange}
-                    className="border rounded p-1 mt-1 w-full"
-                  />
-                ) : (
-                  farmerData.farmName
-                )}
-              </div>
-              <div>
-                <strong>{t('profile1.labels.experience')}:</strong>{' '}
-                {isEditing ? (
-                  <input
-                    type="text"
-                    name="experience"
-                    value={farmerData.experience}
-                    onChange={handleInputChange}
-                    className="border rounded p-1 mt-1 w-full"
-                  />
-                ) : (
-                  farmerData.experience
-                )}
-              </div>
-              <div>
-                <strong>{t('profile1.labels.productsGrown')}:</strong>{' '}
-                {isEditing ? (
-                  <input
-                    type="text"
-                    name="productsGrown"
-                    value={farmerData.productsGrown.join(', ')}
-                    onChange={handleInputChange}
-                    className="border rounded p-1 mt-1 w-full"
-                  />
-                ) : (
-                  farmerData.productsGrown.join(', ')
-                )}
-              </div>
-              <div>
-                <strong>{t('profile1.labels.socialMedia')}:</strong>
-                {isEditing ? (
-                  <div className="flex flex-col space-y-2 mt-1">
-                    <div className="flex items-center">
-                      <span className="w-24 text-sm">{t('profile1.labels.facebook')}:</span>
-                      <input
-                        type="text"
-                        name="socialMedia.facebook"
-                        value={farmerData.socialMedia.facebook}
-                        onChange={handleInputChange}
-                        className="border rounded p-1 flex-grow"
-                      />
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-24 text-sm">{t('profile1.labels.instagram')}:</span>
-                      <input
-                        type="text"
-                        name="socialMedia.instagram"
-                        value={farmerData.socialMedia.instagram}
-                        onChange={handleInputChange}
-                        className="border rounded p-1 flex-grow"
-                      />
-                    </div>
-                    <div className="flex items-center">
-                      <span className="w-24 text-sm">{t('profile1.labels.twitter')}:</span>
-                      <input
-                        type="text"
-                        name="socialMedia.twitter"
-                        value={farmerData.socialMedia.twitter}
-                        onChange={handleInputChange}
-                        className="border rounded p-1 flex-grow"
-                      />
-                    </div>
-                  </div>
-                ) : (
-                  <div className="flex flex-col">
-                    <a href={farmerData.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
-                      {t('profile1.labels.facebook')}
-                    </a>
-                    <a href={farmerData.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="text-pink-500 hover:underline">
-                      {t('profile1.labels.instagram')}
-                    </a>
-                    <a href={farmerData.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">
-                      {t('profile1.labels.twitter')}
-                    </a>
-                  </div>
-                )}
-              </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-gray-50 rounded-lg p-5 shadow-sm border">
+              <h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+                <Mail className="text-gray-500" size={18} /> Contact Information
+              </h2>
+              <p className="text-gray-600 mb-2"><Mail className="inline mr-2" size={16} /> {user.email}</p>
+              <p className="text-gray-600"><Phone className="inline mr-2" size={16} /> {user.phone}</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-5 shadow-sm border">
+              <h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+                <Globe2 className="text-gray-500" size={18} /> Location
+              </h2>
+              <p className="text-gray-600">{user.country}, {user.state}</p>
+            </div>
+
+            <div className="bg-gray-50 rounded-lg p-5 shadow-sm border">
+              <h2 className="text-lg font-semibold text-gray-700 mb-4 flex items-center gap-2">
+                <ShieldCheck className="text-gray-500" size={18} /> Document Verification
+              </h2>
+              <p className="text-gray-600 mb-2">🆔 Document No: {user.documentNo}</p>
+              <img
+                src={proofDocumentUrl}
+                alt="Proof Document"
+                className="w-full h-48 object-contain border border-gray-300 rounded-lg mt-2 hover:shadow-lg transition duration-300"
+              />
             </div>
           </div>
-
-          <div className="flex justify-between mt-6">
-            {isEditing ? (
-              <button
-                onClick={handleSave}
-                className="flex items-center px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600 transition-colors"
-              >
-                <HiOutlineSave className="mr-2 text-lg" /> {t('profile1.saveProfile')}
-              </button>
-            ) : (
-              <button
-                onClick={() => setIsEditing(true)}
-                className="flex items-center px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600 transition-colors"
-              >
-                <HiOutlinePencil className="mr-2 text-lg" /> {t('profile1.editProfile')}
-              </button>
-            )}
-          </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <p className="text-red-500 text-center text-lg">❌ Unauthorized: Please log in</p>
+      )}
     </div>
   );
 };
