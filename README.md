@@ -36,8 +36,8 @@ AgroConnect is an end-to-end web-based platform that bridges the gap between far
     agroconnect-backend
     React-Admin-UI-V1-main
 ### Steps TO Run Project 
-bash
-git clone https://github.com/NitSanghani111/AgroConnect.git
+    bash
+    git clone https://github.com/NitSanghani111/AgroConnect.git
     cd ./  AgroConnect_LandingPAge
        simply Install npm i and run  using Commnd npm run dev
     cd ./  agroconnect-backend
@@ -46,7 +46,7 @@ git clone https://github.com/NitSanghani111/AgroConnect.git
       JWT_SECRET=your_jwt_secret_key
       PORT=5000
       command for run npm run dev .
-   cd ./   React-Admin-UI-V1-main
+       cd ./   React-Admin-UI-V1-main
        simply Install npm i and run  using Commnd npm run dev\
 
 ## Future Improvements
